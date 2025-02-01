@@ -1,0 +1,200 @@
+/* General body setup */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #000000; /* Black background */
+    color: #f1f1f1; /* Light text color */
+}
+
+/* Header styles */
+.header {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #1a1a1a; /* Dark gray for contrast */
+    flex-wrap: wrap;
+    border-bottom: 2px solid #ffe600; /* Yellow divider */
+}
+
+.header i {
+    font-size: 24px;
+    color: #ffe600; /* Yellow icons */
+    margin-right: 10px;
+}
+
+.header .title {
+    flex-grow: 1;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.header .title h1 {
+    margin: 0;
+    font-size: 22px;
+    color: #ffe600; /* Vibrant yellow */
+    text-shadow: 1px 1px 5px rgba(255, 230, 0, 0.6); /* Soft yellow glow */
+}
+
+.header .title p {
+    margin: 0;
+    font-size: 14px;
+    color: #b0b0b0; /* Muted gray text */
+    text-align: center;
+}
+
+.header .icons {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.header .icons i {
+    font-size: 20px;
+    margin-left: 15px;
+    color: #ffe600; /* Yellow icons */
+}
+
+/* Content styles */
+.content {
+    text-align: center;
+    padding: 20px;
+}
+
+.content h2 {
+    margin: 20px 0;
+    font-size: 20px;
+    color: #ffe600; /* Yellow headings */
+    text-shadow: 1px 1px 5px rgba(255, 230, 0, 0.6); /* Soft glow */
+}
+
+/* Button styles */
+.button {
+    background: linear-gradient(145deg, #ffe600, #d4c200); /* Glossy yellow gradient */
+    border: none;
+    color: #000000; /* Black text for contrast */
+    padding: 14px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 20px auto;
+    width: 80%;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(255, 230, 0, 0.6); /* Yellow shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.button:hover {
+    transform: scale(1.05); /* Subtle zoom effect */
+    box-shadow: 0 6px 15px rgba(255, 230, 0, 0.8); /* Brighter glow */
+    cursor: pointer;
+}
+
+/* Button container */
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+/* Specific styling for the Next button */
+.next-button {
+    background: linear-gradient(145deg, #ffe600, #d4c200); /* Glossy yellow gradient */
+    font-size: 18px;
+    width: 90%;
+    margin-top: 20px;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    color: #000;
+    box-shadow: 0 4px 10px rgba(255, 230, 0, 0.6); /* Yellow shadow */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.next-button:hover {
+    background-color: #ffdf00; /* Slightly brighter yellow */
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.next-button:focus {
+    outline: none;
+    box-shadow: 0 0 8px rgba(255, 230, 0, 0.8); /* Glow on focus */
+}
+
+/* Footer styles */
+.footer {
+    display: flex;
+    overflow-x: auto;
+    background-color: #1a1a1a; /* Dark gray footer */
+    padding: 10px 0;
+    border-top: 2px solid #ffe600; /* Yellow divider */
+}
+
+.footer img {
+    height: 50px;
+    margin: 0 5px;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .header i {
+        margin-bottom: 10px;
+    }
+
+    .header .title h1 {
+        font-size: 18px;
+    }
+
+    .button {
+        width: 90%;
+        padding: 12px;
+    }
+
+    .next-button {
+        width: 90%;
+        padding: 14px;
+    }
+
+    .footer {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .footer img {
+        height: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .content h2 {
+        font-size: 16px;
+    }
+
+    .button {
+        font-size: 14px;
+        padding: 12px;
+    }
+
+    .next-button {
+        font-size: 16px;
+        padding: 14px;
+    }
+
+    .header .title h1 {
+        font-size: 16px;
+    }
+
+    .footer img {
+        height: 35px;
+    }
+}

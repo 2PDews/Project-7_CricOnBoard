@@ -1,0 +1,219 @@
+/* General Styling */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #121212;
+  margin: 0;
+  padding: 0;
+  color: #FFD700;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 700px;
+  margin: 50px auto;
+  background: #1f1f1f;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(255, 223, 0, 0.4);
+  text-align: center;
+}
+
+#shuffleButton {
+  background-color: #FFD700;
+  color: #121212;
+  font-size: 18px;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#shuffleButton:hover {
+  background-color: #ffbb33;
+  transform: scale(1.05);
+}
+
+#shuffleButton:active {
+  background-color: #ff9900;
+  transform: scale(0.95);
+}
+
+/* Header with Image */
+.header-image {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto 20px;
+  border-radius: 12px;
+}
+
+/* General Button Styling */
+.button {
+  padding: 12px 25px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #121212;
+  background-color: #FFD700;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.button:hover {
+  background-color: #ffbb33;
+  transform: scale(1.05);
+}
+
+.button:focus {
+  outline: none;
+  box-shadow: 0 0 8px rgba(255, 193, 7, 0.6);
+}
+
+.button:disabled {
+  background-color: #c0c0c0;
+  cursor: not-allowed;
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 600px) {
+  .button {
+    width: auto;
+  }
+}
+
+/* Add Player Section */
+.add-player input {
+  width: 70%;
+  padding: 12px;
+  font-size: 18px;
+  margin-right: 12px;
+  border: 2px solid #FFD700;
+  background: #1f1f1f;
+  color: #FFD700;
+  border-radius: 6px;
+}
+
+.add-player button,
+.navigate a {
+  padding: 12px 25px;
+  font-size: 18px;
+  background-color: #FFD700;
+  color: #121212;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.add-player button:hover,
+.navigate a:hover {
+  background-color: #ffbb33;
+}
+
+/* Player and Stats Lists */
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  background: #FFD700;
+  margin: 10px 0;
+  padding: 15px;
+  border-radius: 6px;
+  color: #121212;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+li button {
+  background: #dc3545;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 15px;
+  cursor: pointer;
+}
+
+li button:hover {
+  background: #c82333;
+}
+
+/* Player Stats */
+.player-stats div {
+  background: #2c2c2c;
+  color: #FFD700;
+  margin: 15px 0;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: left;
+}
+
+.player-stats input {
+  width: 45%;
+  padding: 10px;
+  margin: 8px 0;
+  font-size: 16px;
+  border: 2px solid #FFD700;
+  background: #1f1f1f;
+  color: #FFD700;
+  border-radius: 6px;
+}
+
+.player-stats button {
+  padding: 10px 20px;
+  background-color: #FFD700;
+  color: #121212;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.player-stats button:hover {
+  background-color: #ffbb33;
+}
+/* Tournament Input Styling */
+#tournamentInput {
+  width: 100%;
+  padding: 12px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #FFD700; /* Golden yellow text */
+  background-color: #1f1f1f; /* Dark background */
+  border: 2px solid #FFD700; /* Yellow border */
+  border-radius: 6px;
+  box-sizing: border-box;
+  text-align: center;
+  cursor: not-allowed; /* Indicate that the input is read-only */
+}
+
+#tournamentInput:focus {
+  outline: none; /* Remove default focus outline */
+  box-shadow: 0 0 8px rgba(255, 193, 7, 0.6); /* Subtle yellow glow effect on focus */
+}
+/* Header Styling */
+.header {
+  font-size: 32px; /* Large font size for emphasis */
+  font-weight: bold;
+  color: #FFD700; /* Golden yellow text */
+  background-color: #121212; /* Dark background for contrast */
+  padding: 20px;
+  text-align: center;
+  border-radius: 8px;
+  margin-bottom: 30px; /* Adds space below the header */
+  box-shadow: 0 4px 8px rgba(255, 223, 0, 0.4); /* Subtle glow effect */
+  text-transform: uppercase; /* Capitalize all letters for a bold statement */
+}
+
+.header:hover {
+  background-color: #1f1f1f; /* Darker background on hover */
+  color: #ffbb33; /* Change text color to lighter yellow on hover */
+}

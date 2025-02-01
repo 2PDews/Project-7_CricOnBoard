@@ -1,0 +1,203 @@
+/* Basic Styling */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #1a1a1a; /* Glossy black */
+    color: #f1f1f1; /* Light gray text */
+    font-size: 14px;
+}
+
+/* Header */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: 60px;
+    background: linear-gradient(145deg, #000000, #1c1c1c); /* Glossy black gradient */
+    padding: 0 15px;
+    border-bottom: 1px solid #333;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.header .title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #f1c40f; /* Yellow title */
+    text-shadow: 2px 2px 5px rgba(241, 196, 15, 0.5); /* Subtle yellow glow */
+}
+
+.back-button {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+}
+
+.right-icons {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.back-button a {
+    text-decoration: none;
+    color: #f1c40f; /* Yellow icon */
+    font-size: 24px;
+    transition: color 0.3s;
+}
+
+.back-button a:hover {
+    color: #d4ac0d; /* Brighter yellow */
+}
+
+/* Navigation Icons */
+.nav-icons {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    background: linear-gradient(145deg, #1a1a1a, #2b2b2b); /* Glossy black gradient */
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.4);
+}
+
+.nav-icons i {
+    font-size: 20px;
+    color: white;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.nav-icons .active {
+    color: #f1c40f; /* Yellow for active icon */
+}
+
+.nav-icons i:hover {
+    color: #f1c40f;
+    transform: scale(1.2);
+}
+
+/* Floating Action Button */
+.fab {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px; /* Increased FAB size */
+    height: 60px;
+    background: linear-gradient(145deg, #f1c40f, #d4ac0d); /* Glossy yellow gradient */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    font-size: 24px; /* Increased icon size */
+    box-shadow: 0px 4px 15px rgba(241, 196, 15, 0.5); /* Yellow glow */
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.fab:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 6px 20px rgba(241, 196, 15, 0.7);
+}
+
+/* Popup Overlay */
+.popup-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Popup Content */
+.popup-content {
+    background: linear-gradient(145deg, #1a1a1a, #2b2b2b); /* Glossy black background */
+    color: #f1f1f1;
+    width: 80%;
+    max-width: 350px;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+}
+
+.popup-content h2 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 18px;
+    color: #f1c40f; /* Yellow heading */
+}
+
+.popup-content button {
+    background: linear-gradient(145deg, #f1c40f, #d4ac0d); /* Glossy yellow */
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    margin: 8px 4px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.popup-content button:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 4px 10px rgba(241, 196, 15, 0.6);
+}
+
+/* Close Icon */
+.close-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #f1c40f; /* Yellow close icon */
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close-icon:hover {
+    color: red;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 480px) {
+    .popup-content {
+        padding: 15px;
+    }
+
+    .popup-content button {
+        width: 100%;
+    }
+}
+.tournament-item {
+    background-color: #f4f4f4;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 5px;
+}
+
+.tournament-name {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.continue-btn {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.continue-btn:hover {
+    background-color: #218838;
+}

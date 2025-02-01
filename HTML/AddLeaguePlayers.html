@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="../CSS/AddLeaguePlayers.css">
+    <title>Select Players for League</title>
+</head>
+<body>
+    <div class="name">
+        <input type="text" id="tournamentInput" readonly>
+    </div>
+    <div class="header">Select Players for League</div>
+
+    <div class="player-selection-section">
+        <h3>Available Players</h3>
+        <ul id="availablePlayersList"></ul>
+    </div>
+
+    <div class="selected-players-section">
+        <h3>Selected Players</h3>
+        <ul id="selectedPlayersList"></ul>
+    </div>
+
+    <div class="footer">
+        <button class="button next-button" onclick="redirectToShufflePage()">Next</button>
+    </div>
+
+    <script src="../JS/AddLeaguePlayers.js"></script>
+</body>
+</html>

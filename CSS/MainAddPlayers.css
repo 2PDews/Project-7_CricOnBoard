@@ -1,0 +1,182 @@
+/* Basic Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000000; /* Glossy black background */
+    color: #f1f1f1; /* Light gray text for readability */
+    margin: 0;
+    padding: 20px;
+}
+
+/* Header */
+.header {
+    font-size: 2em;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #f1c40f; /* Yellow header */
+    text-shadow: 2px 2px 10px rgba(241, 196, 15, 0.7); /* Soft yellow glow */
+}
+
+/* Add Player Section */
+.add-player-section {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.add-player-section input {
+    flex: 1;
+    padding: 10px;
+    border-radius: 5px;
+    border: 2px solid #f1c40f; /* Yellow border */
+    background: #1a1a1a; /* Darker black input background */
+    color: #f1f1f1;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.add-player-section input:focus {
+    border-color: #e2b607; /* Brighter yellow on focus */
+    box-shadow: 0 0 10px #e2b607; /* Yellow glow */
+    outline: none;
+}
+
+.add-player-section button {
+    padding: 10px 20px;
+    background: linear-gradient(145deg, #f1c40f, #d4ac0d); /* Glossy yellow gradient */
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.add-player-section button:hover {
+    background-color: #e2b607; /* Brighter yellow on hover */
+    transform: scale(1.05); /* Slightly larger on hover */
+}
+
+/* Player List */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    background: linear-gradient(145deg, #1c1c1c, #333); /* Glossy black gradient */
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #f1f1f1;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* Buttons inside List Items */
+li button {
+    margin-left: 10px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.edit-button {
+    background: linear-gradient(145deg, #f1c40f, #d4ac0d); /* Glossy yellow */
+    color: black;
+}
+
+.edit-button:hover {
+    background-color: #e2b607; /* Brighter yellow */
+}
+
+.delete-button {
+    background: #dc3545; /* Red delete button */
+    color: white;
+}
+
+.delete-button:hover {
+    background-color: #b02a37; /* Darker red on hover */
+}
+
+/* Popup Styles */
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(145deg, #1c1c1c, #333); /* Glossy black background */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+    display: none;
+    text-align: center;
+    z-index: 1000;
+}
+
+.popup input {
+    padding: 10px;
+    margin-top: 10px;
+    width: 80%;
+    border: 1px solid #f1c40f; /* Yellow border */
+    border-radius: 5px;
+    background: #1a1a1a; /* Dark black input background */
+    color: #f1f1f1;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.popup input:focus {
+    border-color: #e2b607; /* Brighter yellow */
+    box-shadow: 0 0 10px #e2b607; /* Yellow glow */
+    outline: none;
+}
+
+.popup button {
+    padding: 10px 20px;
+    margin: 10px 5px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.confirm-button {
+    background: linear-gradient(145deg, #28a745, #218838); /* Glossy green */
+    color: white;
+}
+
+.confirm-button:hover {
+    background-color: #218838; /* Darker green on hover */
+}
+
+.cancel-button {
+    background: #dc3545; /* Red */
+    color: white;
+}
+
+.cancel-button:hover {
+    background-color: #b02a37; /* Darker red */
+}
+
+/* Home Button */
+.home-button-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#homeButton {
+    background: linear-gradient(145deg, #f1c40f, #d4ac0d); /* Glossy yellow */
+    color: black;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+#homeButton:hover {
+    background-color: #e2b607; /* Brighter yellow */
+    transform: scale(1.05); /* Slightly larger on hover */
+}

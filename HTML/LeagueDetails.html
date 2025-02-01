@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Details</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="../CSS/LeagueDetails.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <button class="back-button" onclick="goBack()">
+                <i class="fas fa-arrow-left"></i> 
+            </button>
+            <div class="title">Details</div>
+        </div>
+      
+        <div class="content">
+            <div class="name">
+                <input type="text" id="tournamentInput" readonly>
+            </div>
+            
+            <div class="item">
+                <div class="label">Number of innings</div>
+                <div class="value">
+                    <i class="fas fa-minus-circle minus-btn" data-target="innings"></i>
+                    <span id="innings">4</span>
+                    <i class="fas fa-plus-circle plus-btn" data-target="innings"></i>
+                </div>
+            </div>
+            <div class="item">
+                <div class="label">Runs Per Wicket</div>
+                <div class="value">
+                    <i class="fas fa-minus-circle minus-btn" data-target="winPoints"></i>
+                    <span id="winPoints">0</span>
+                    <i class="fas fa-plus-circle plus-btn" data-target="winPoints"></i>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <button class="create-schedule-button" onclick="window.location.href='AddLeaguePlayers.html'">
+                Select League Players
+            </button>
+        </div>
+        
+    </div>
+    <script src="../JS/LeagueDetails.js"></script>
+</body>
+</html>

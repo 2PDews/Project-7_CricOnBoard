@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Details</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+  <link href="../CSS/CreateTournament.css" rel="stylesheet"/>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="back-button">
+        <a href="Tournament.html">
+          <i class="fas fa-arrow-left"></i>
+        </a>
+      </div>
+      <div class="title">Details</div>
+    </div>
+    <div class="trophy">
+      <i class="fas fa-trophy"></i>
+    </div>
+    <div class="input-group">
+      <label for="name">Tournament Name</label>
+      <input id="name" placeholder="Name" type="text" oninput="updateCharCount()"/>
+      <div class="char-count" id="charCount">0/40</div>
+    </div>
+  
+    <div class="buttons">
+      <div class="button">
+        <div>Cricket</div>
+      </div>
+      <div class="button">
+        <div>Individual</div>
+      </div>
+      <div class="button">
+        <div>Single scorecard</div>
+      </div>
+    </div>
+    <div class="next-button">
+      <button id="next-btn" onclick="saveTournamentName()">Select Format</button>
+    </div>
+  </div>
+
+  <script src="../JS/CreateTournament.js"></script>
+</body>
+</html>

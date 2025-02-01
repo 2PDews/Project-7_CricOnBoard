@@ -1,0 +1,311 @@
+/* General Styles */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #000; /* Black background */
+  color: #FFD700; /* Yellow text color */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Container Styling */
+.container {
+  font-family: 'Roboto', sans-serif;
+  padding: 20px;
+  background-color: #222; /* Darker background for the container */
+  border-radius: 10px;
+  width: 90%;
+  max-width: 900px;
+  height: 90%;
+  overflow-y: auto; /* Allow scrolling if content overflows */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Shadow for depth */
+}
+
+/* Header styling */
+.header {
+  background-color: #333; /* Darker header background */
+  color: #FFD700; /* Yellow text color */
+  padding: 15px 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(255, 223, 0, 0.2); /* Subtle yellow shadow */
+  font-size: 2.5em;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.header::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -10px;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 5px;
+  background-color: #FFD700; /* Yellow underline */
+  border-radius: 5px;
+}
+
+/* Inning Section */
+.inning {
+  background-color: #333; /* Dark gray for innings */
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.inning h2 {
+  color: #FFD700; /* Yellow color for inning headers */
+  margin: 0;
+}
+
+/* Player Section */
+.player {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #444; /* Slightly lighter background for players */
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.player i {
+  margin-right: 10px;
+  color: #FFD700; /* Yellow color for player icon */
+}
+
+.player .player-stats {
+  display: flex;
+  gap: 10px;
+}
+
+.player input {
+  background-color: #555; /* Dark input field */
+  border: 2px solid #FFD700; /* Yellow border */
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: #FFD700; /* Yellow text */
+  width: 60px;
+}
+
+.player input:focus {
+  outline: none;
+  background-color: #777; /* Lighter background on focus */
+  color: black; /* Change text to black on focus */
+}
+
+/* Submit Button */
+.submit-btn {
+  background-color: #555; /* Dark button background */
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  color: #FFD700; /* Yellow text */
+  cursor: pointer;
+  margin-top: 10px;
+  width: 100%;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: #777; /* Lighter background on hover */
+  color: black; /* Black text on hover */
+}
+
+
+
+/* Media Queries for Mobile Responsiveness */
+@media (max-width: 768px) {
+  .container {
+    width: 95%;
+  }
+
+  .header {
+    font-size: 2em;
+  }
+
+  .inning {
+    padding: 10px;
+  }
+
+  .player {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .player .player-stats {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .player input {
+    width: 100px;
+  }
+
+  .submit-btn {
+    width: auto;
+  }
+}
+
+/* For small devices like phones in portrait mode */
+@media (max-width: 480px) {
+  .header {
+    font-size: 1.5em; /* Smaller header font */
+  }
+
+  .innings h2 {
+    font-size: 1.5em; /* Adjust innings font size */
+  }
+
+  .container {
+    padding: 5px; /* Minimal padding on small devices */
+  }
+
+  .player .buttons button {
+    padding: 8px; /* Larger buttons for readability */
+    font-size: 1em; /* Ensure buttons have readable font size */
+  }
+}
+/* Title Section */
+.title {
+  margin-bottom: 20px; /* Space below the title */
+  text-align: center; /* Center the title */
+}
+
+#tournamentInput {
+  background-color: #333; /* Dark background for input */
+  color: #FFD700; /* Yellow text color */
+  border: 2px solid #FFD700; /* Yellow border */
+  padding: 10px 20px; /* Padding inside the input */
+  font-size: 1.2em; /* Larger text */
+  width: 80%; /* Makes the input width responsive */
+  max-width: 500px; /* Maximum width */
+  border-radius: 8px; /* Rounded corners */
+  text-align: center; /* Center the text inside the input */
+  outline: none; /* Remove default outline */
+  box-shadow: 0 4px 8px rgba(255, 223, 0, 0.3); /* Subtle yellow shadow */
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+#tournamentInput:focus {
+  background-color: #555; /* Lighter background on focus */
+  border-color: #FFD700; /* Highlight border in yellow */
+  color: #FFD700; /* Yellow text */
+}
+
+/* Tournament Details Section */
+.tournament-details {
+  text-align: center; /* Center the content */
+  margin-top: 20px; /* Space above */
+}
+
+#goToTournamentButton {
+  background-color: #FFD700; /* Yellow background */
+  color: black; /* Black text */
+  font-size: 16px; /* Standard font size */
+  padding: 10px 20px; /* Padding for the button */
+  border: none; /* Remove default border */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions */
+}
+
+#goToTournamentButton:hover {
+  background-color: #e6b800; /* Darker yellow on hover */
+  transform: scale(1.05); /* Slightly enlarge button */
+}
+
+#goToTournamentButton:active {
+  background-color: #cc9900; /* Even darker yellow on click */
+  transform: scale(0.95); /* Slight shrink on click */
+}
+/* Player Totals Section */
+#totals-container {
+  background-color: #222;  /* Dark background for the container */
+  padding: 20px;           /* Padding inside the container */
+  border-radius: 10px;     /* Rounded corners */
+  margin-top: 20px;        /* Space above the container */
+  width: 100%;             /* Full width */
+  max-width: 600px;        /* Limit the maximum width for better alignment */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);  /* Subtle shadow for depth */
+}
+
+/* Heading inside Player Totals */
+#totals-container h3 {
+  font-size: 1.8em;        /* Larger font size for the heading */
+  color: #FFD700;          /* Yellow color for the text */
+  margin-bottom: 10px;     /* Space below the heading */
+  text-align: center;      /* Center align the title */
+}
+
+/* Player Totals List Styling */
+#player-totals {
+  list-style-type: none;   /* Remove default bullet points */
+  padding: 0;              /* Remove padding */
+  margin: 0;               /* Remove margin */
+  color: #FFD700;          /* Yellow color for list text */
+  font-family: 'Arial', sans-serif; /* Clean and simple font */
+}
+
+/* Individual List Item Styling */
+#player-totals li {
+  display: grid;                   /* Use grid layout for more control */
+  grid-template-columns: 1fr 1fr 1fr; /* Three columns: name, runs, wickets */
+  gap: 10px;                       /* Gap between columns */
+  font-size: 1.2em;                /* Slightly larger font for list items */
+  margin: 10px 0;                  /* Space between items */
+  padding: 10px;                   /* Padding inside each list item */
+  background-color: #333;          /* Dark background for each item */
+  border-radius: 8px;              /* Rounded corners for each item */
+  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+  align-items: center;             /* Align content vertically */
+}
+
+/* Hover Effect for List Items */
+#player-totals li:hover {
+  background-color: #444;          /* Lighter background on hover */
+}
+
+/* Runs Styling */
+.run {
+  color: #4CAF50;                  /* Green for runs */
+  font-weight: bold;               /* Bold text for runs */
+  text-align: center;              /* Center align the runs */
+}
+
+/* Wickets Styling */
+.wicket {
+  color: #F44336;                  /* Red for wickets */
+  font-weight: bold;               /* Bold text for wickets */
+  text-align: center;              /* Center align the wickets */
+}
+
+/* Player Name Styling */
+.player-name {
+  color: #FFD700;                  /* Yellow for player name */
+  font-weight: bold;               /* Bold text for player name */
+  text-align: left;                 /* Align player name to the left */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  #totals-container {
+    padding: 15px;                  /* Less padding on smaller screens */
+    max-width: 100%;                 /* Full width on mobile */
+  }
+
+  #player-totals li {
+    font-size: 1em;                 /* Slightly smaller font size on mobile */
+    padding: 8px;                   /* Adjust padding for smaller devices */
+    grid-template-columns: 1fr;     /* One column layout for smaller screens */
+  }
+}

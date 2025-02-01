@@ -1,0 +1,38 @@
+
+body {
+         margin: 0;
+         padding: 0;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         height: 100vh;
+         background-color: #333;
+         font-family: Arial, sans-serif;
+     }
+     .container {
+         text-align: center;
+         width: 100%;
+         max-width: 400px;
+     }
+     .logo img {
+         width: 100%;
+         max-width: 300px;
+     }
+     .button {
+         display: block;
+         width: 80%;
+         max-width: 300px;
+         margin: 10px auto;
+         padding: 15px;
+         background-color: #ffc107;
+         color: #000;
+         text-align: center;
+         border: none;
+         border-radius: 25px;
+         font-size: 18px;
+         cursor: pointer;
+         text-decoration: none;
+     }
+     .button i {
+         margin-right: 10px;
+     }

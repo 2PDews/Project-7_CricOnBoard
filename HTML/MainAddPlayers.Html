@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="../CSS/MainAddPlayers.css">
+    <title>Player Management</title>
+    
+</head>
+<body>
+    <div class="header">Player Management</div>
+
+    <div class="add-player-section">
+        <input type="text" id="playerNameInput" placeholder="Enter player name">
+        <button id="addPlayerButton">Add Player</button>
+    </div>
+
+    <ul id="playerList"></ul>
+
+    <div id="deletePopup" class="popup">
+        <p id="deleteMessage"></p>
+        <input type="text" id="confirmationCodeInput" placeholder="Enter confirmation code">
+        <button class="confirm-button" id="confirmDeleteButton">Confirm</button>
+        <button class="cancel-button" id="cancelDeleteButton">Cancel</button>
+    </div>
+    <div class="home-button-container">
+        <button id="homeButton" onclick="location.href='Tournament.html';">Go to Tournament</button>
+
+    </div>
+    <script src="../JS/MainAddPlayers.js"></script>
+</body>
+</html>

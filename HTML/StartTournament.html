@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tournament</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="../CSS/StartTournament.css">
+</head>
+<body>
+    <div class="container">
+        <div class="title">
+            <input type="text" id="tournamentInput" readonly>
+    </div>
+    <div class="tournament-details">
+        <button id="goToTournamentButton">Go to Tournament</button>
+    </div>
+        <!-- Dynamic innings count will be inserted here -->
+        <div id="innings-container"></div>
+
+        <!-- Container for dynamic player elements -->
+        <div id="players-container"></div>
+
+        
+        <div id="totals-container">
+            <h3>Player Totals</h3>
+            <ul id="player-totals"></ul>
+            
+        </div>
+    </div>
+<!-- Add this Save button in the header or top section of your page -->
+<button id="saveTournamentButton" class="save-btn">Save Tournament</button>
+
+    
+
+    <script src="../JS/StartTournament.js"></script>
+</body>
+</html>

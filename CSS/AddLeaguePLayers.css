@@ -1,0 +1,226 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000; /* Black background */
+    color: #f1c40f; /* Yellow text */
+}
+
+.header {
+    background-color: #f1c40f; /* Bright yellow */
+    color: #000; /* Black text */
+    text-align: center;
+    padding: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Section Styles */
+.player-selection-section,
+.selected-players-section {
+    margin: 30px auto;
+    padding: 25px;
+    max-width: 700px;
+    background-color: #111; /* Dark gray for contrast */
+    color: #f1c40f; /* Yellow text */
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+}
+
+h3 {
+    margin-bottom: 20px;
+    font-size: 22px;
+    font-weight: bold;
+    color: #f1c40f; /* Yellow headings */
+    text-align: center;
+    text-transform: uppercase;
+}
+
+/* List Styles */
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+ul li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    border-bottom: 1px solid #333; /* Subtle border */
+    color: #000000; /* Light text for list items */
+}
+
+ul li:last-child {
+    border-bottom: none;
+}
+
+/* Button Styles */
+button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #f1c40f; /* Bright yellow */
+    color: #000; /* Black text */
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+button:hover {
+    background-color: #f39c12; /* Darker yellow */
+    transform: scale(1.05); /* Subtle zoom effect on hover */
+}
+
+/* Footer Styles */
+.footer {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.footer .button {
+    padding: 12px 25px;
+    font-size: 16px;
+    background-color: #f1c40f; /* Bright yellow */
+    color: #000; /* Black text */
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.footer .button:hover {
+    background-color: #f39c12; /* Darker yellow */
+    transform: scale(1.05); /* Subtle zoom effect on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header {
+        font-size: 24px;
+        padding: 15px;
+    }
+
+    .player-selection-section, .selected-players-section {
+        padding: 20px;
+        max-width: 90%;
+    }
+
+    h3 {
+        font-size: 20px;
+    }
+
+    button {
+        font-size: 13px;
+        padding: 6px 12px;
+    }
+
+    .footer .button {
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+}
+/* Name Input Container */
+.name {
+    margin: 20px auto;
+    padding: 10px;
+    max-width: 500px;
+    text-align: center;
+}
+
+/* Input Field Styling */
+.name input {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #f1c40f; /* Yellow border */
+    border-radius: 8px;
+    background-color: #111; /* Dark background for contrast */
+    color: #f9f9f9; /* Light text color */
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+    cursor: not-allowed; /* Indicates read-only state */
+}
+
+/* Focus and Hover States */
+.name input:focus, 
+.name input:hover {
+    outline: none;
+    border-color: #f39c12; /* Darker yellow for interaction */
+    box-shadow: 0 4px 12px rgba(243, 156, 18, 0.5); /* Glow effect on hover/focus */
+}
+
+/* Disabled Text Field */
+.name input[readonly] {
+    background-color: #222; /* Slightly lighter dark background */
+    color: #ccc; /* Muted text color to indicate read-only */
+    cursor: not-allowed;
+}
+
+@media (max-width: 480px) {
+    .header {
+        font-size: 20px;
+        padding: 10px;
+    }
+
+    .player-selection-section, .selected-players-section {
+        padding: 15px;
+        max-width: 95%;
+    }
+
+    h3 {
+        font-size: 18px;
+    }
+
+    button {
+        font-size: 12px;
+        padding: 5px 10px;
+    }
+
+    .footer .button {
+        font-size: 12px;
+        padding: 8px 16px;
+    }
+}
+
+
+/* Player and Stats Lists */
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  li {
+    background: #FFD700;
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 6px;
+    color: #121212;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  /* Remove button styling */
+  .remove-button {
+    background: #dc3545; /* Red color */
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 6px;
+    padding: 8px 15px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .remove-button:hover {
+    background: #c82333; /* Darker red on hover */
+  }
+  
