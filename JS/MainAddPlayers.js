@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Load players from local storage
     function loadPlayers() {
-        const storedPlayers = JSON.parse(localStorage.getItem("selectedPlayers")) || [];
+        const storedPlayers = JSON.parse(localStorage.getItem("players")) || [];
         storedPlayers.forEach(player => {
             addPlayerToList(player.name || player);
         });
@@ -22,10 +22,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Save players to local storage
     function savePlayers() {
-        const players = Array.from(playerList.children).map(listItem => ({
-            name: listItem.querySelector("span").textContent,
-        }));
-        localStorage.setItem("selectedPlayers", JSON.stringify(players));
+        const players = Array.from(playerList.children).map(listItem => (listItem.querySelector("span").textContent));
+        localStorage.setItem("players", JSON.stringify(players));
     }
 
     // Function to generate a 4-digit code
@@ -102,9 +100,12 @@ document.addEventListener("DOMContentLoaded", () => {
     addPlayerButton.addEventListener("click", () => {
         const playerName = playerNameInput.value.trim();
         if (playerName) {
-            addPlayerToList(playerName);
-            playerNameInput.value = "";
-            savePlayers(); // Save changes
+            const players = JSON.parse(localStorage.getItem('players')) || [];
+            players.push(playerName);
+            localStorage.setItem('players', JSON.stringify(players));
+
+            addPlayerToList(playerName); // Add player to the list UI
+            playerNameInput.value = "";  // Clear the input field
         } else {
             alert("Please enter a player name!");
         }
