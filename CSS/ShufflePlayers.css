@@ -1,38 +1,64 @@
 /* General Styling */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #121212;
+  background: linear-gradient(135deg, #121212, #1f1f1f); /* Subtle gradient background */
   margin: 0;
   padding: 0;
   color: #FFD700;
   line-height: 1.6;
+  text-align: center;
 }
 
 .container {
   max-width: 700px;
   margin: 50px auto;
-  background: #1f1f1f;
+  background: #2a2a2a;
   padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 6px 12px rgba(255, 223, 0, 0.4);
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(255, 223, 0, 0.4);
   text-align: center;
+  overflow: hidden;
 }
 
-#shuffleButton {
-  background-color: #FFD700;
-  color: #121212;
-  font-size: 18px;
-  padding: 12px 25px;
-  border: none;
+/* Header Styling */
+.header {
+  font-size: 36px;
+  font-weight: bold;
+  color: #FFD700;
+  background: #121212;
+  padding: 20px;
+  text-align: center;
   border-radius: 8px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 12px rgba(255, 223, 0, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.header:hover {
+  background: #1f1f1f;
+  color: #ffbb33;
+  box-shadow: 0 6px 18px rgba(255, 223, 0, 0.6);
+}
+
+/* Shuffle Button */
+#shuffleButton {
+  background: #FFD700;
+  color: #121212;
+  font-size: 20px;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 12px;
   cursor: pointer;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  margin-top: 20px;
 }
 
 #shuffleButton:hover {
   background-color: #ffbb33;
   transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
 }
 
 #shuffleButton:active {
@@ -40,7 +66,38 @@ body {
   transform: scale(0.95);
 }
 
-/* Header with Image */
+/* General Button Styling */
+.button {
+  padding: 15px 30px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #121212;
+  background: #FFD700;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.button:hover {
+  background-color: #ffbb33;
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.button:focus {
+  outline: none;
+  box-shadow: 0 0 10px rgba(255, 193, 7, 0.6);
+}
+
+.button:disabled {
+  background: #c0c0c0;
+  cursor: not-allowed;
+}
+
+/* Header Image */
 .header-image {
   max-width: 100%;
   height: auto;
@@ -49,70 +106,41 @@ body {
   border-radius: 12px;
 }
 
-/* General Button Styling */
-.button {
-  padding: 12px 25px;
-  font-size: 18px;
-  font-weight: 600;
-  color: #121212;
-  background-color: #FFD700;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  margin-top: 20px;
-  width: 100%;
-}
-
-.button:hover {
-  background-color: #ffbb33;
-  transform: scale(1.05);
-}
-
-.button:focus {
-  outline: none;
-  box-shadow: 0 0 8px rgba(255, 193, 7, 0.6);
-}
-
-.button:disabled {
-  background-color: #c0c0c0;
-  cursor: not-allowed;
-}
-
-/* Responsive Design for Smaller Screens */
-@media (max-width: 600px) {
-  .button {
-    width: auto;
-  }
-}
-
 /* Add Player Section */
 .add-player input {
   width: 70%;
-  padding: 12px;
+  padding: 14px;
   font-size: 18px;
   margin-right: 12px;
   border: 2px solid #FFD700;
-  background: #1f1f1f;
+  background: #333;
   color: #FFD700;
-  border-radius: 6px;
+  border-radius: 8px;
+  transition: border-color 0.3s ease;
+}
+
+.add-player input:focus {
+  border-color: #FFA500;
+  outline: none;
 }
 
 .add-player button,
 .navigate a {
-  padding: 12px 25px;
+  padding: 14px 30px;
   font-size: 18px;
-  background-color: #FFD700;
+  background: #FFD700;
   color: #121212;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
   text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .add-player button:hover,
 .navigate a:hover {
   background-color: #ffbb33;
+  transform: scale(1.05);
 }
 
 /* Player and Stats Lists */
@@ -124,23 +152,29 @@ ul {
 
 li {
   background: #FFD700;
-  margin: 10px 0;
-  padding: 15px;
-  border-radius: 6px;
+  margin: 12px 0;
+  padding: 18px;
+  border-radius: 8px;
   color: #121212;
   font-weight: 600;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  transition: background 0.3s ease;
+}
+
+li:hover {
+  background: #ffbb33;
 }
 
 li button {
   background: #dc3545;
   color: #fff;
   border: none;
-  border-radius: 6px;
-  padding: 8px 15px;
+  border-radius: 8px;
+  padding: 8px 18px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 li button:hover {
@@ -151,69 +185,81 @@ li button:hover {
 .player-stats div {
   background: #2c2c2c;
   color: #FFD700;
-  margin: 15px 0;
-  padding: 15px;
-  border-radius: 8px;
+  margin: 18px 0;
+  padding: 18px;
+  border-radius: 10px;
   text-align: left;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .player-stats input {
   width: 45%;
-  padding: 10px;
+  padding: 12px;
   margin: 8px 0;
   font-size: 16px;
   border: 2px solid #FFD700;
-  background: #1f1f1f;
+  background: #333;
   color: #FFD700;
-  border-radius: 6px;
+  border-radius: 8px;
+  transition: border-color 0.3s ease;
+}
+
+.player-stats input:focus {
+  border-color: #FFA500;
+  outline: none;
 }
 
 .player-stats button {
-  padding: 10px 20px;
-  background-color: #FFD700;
+  padding: 12px 25px;
+  background: #FFD700;
   color: #121212;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .player-stats button:hover {
   background-color: #ffbb33;
+  transform: scale(1.05);
 }
-/* Tournament Input Styling */
+
+/* Tournament Input */
 #tournamentInput {
-  width: 100%;
-  padding: 12px;
-  font-size: 18px;
-  font-weight: 600;
-  color: #FFD700; /* Golden yellow text */
-  background-color: #1f1f1f; /* Dark background */
-  border: 2px solid #FFD700; /* Yellow border */
-  border-radius: 6px;
-  box-sizing: border-box;
+  background-color: #333;
+  color: #FFD700;
+  border: 2px solid #FFD700;
+  padding: 14px 22px;
+  font-size: 1.3em;
   text-align: center;
-  cursor: not-allowed; /* Indicate that the input is read-only */
+  width: 80%;
+  max-width: 500px;
+  border-radius: 10px;
+  outline: none;
+  display: block;
+  margin: 15px auto;
+  transition: border-color 0.3s ease;
 }
 
 #tournamentInput:focus {
-  outline: none; /* Remove default focus outline */
-  box-shadow: 0 0 8px rgba(255, 193, 7, 0.6); /* Subtle yellow glow effect on focus */
-}
-/* Header Styling */
-.header {
-  font-size: 32px; /* Large font size for emphasis */
-  font-weight: bold;
-  color: #FFD700; /* Golden yellow text */
-  background-color: #121212; /* Dark background for contrast */
-  padding: 20px;
-  text-align: center;
-  border-radius: 8px;
-  margin-bottom: 30px; /* Adds space below the header */
-  box-shadow: 0 4px 8px rgba(255, 223, 0, 0.4); /* Subtle glow effect */
-  text-transform: uppercase; /* Capitalize all letters for a bold statement */
+  background-color: #444;
+  border-color: #FFA500;
 }
 
-.header:hover {
-  background-color: #1f1f1f; /* Darker background on hover */
-  color: #ffbb33; /* Change text color to lighter yellow on hover */
+@media (max-width: 600px) {
+  .button {
+    width: auto;
+  }
+
+  .container {
+    padding: 20px;
+  }
+  .player-name {
+    font-size: 1.5em; /* Adjust the font size as needed */
+  }
+  
+
+  .add-player input {
+    width: 60%;
+  }
 }

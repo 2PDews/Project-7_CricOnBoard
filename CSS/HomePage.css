@@ -88,7 +88,8 @@ body {
   /* Responsive Design */
   @media (max-width: 768px) {
     main {
-      flex-direction: column;
+      padding: 20px;
+      margin-top: 200px;
     }
   
     .option {

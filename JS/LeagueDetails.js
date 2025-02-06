@@ -39,3 +39,125 @@ window.onload = function() {
       console.log("Tournament name not found in localStorage.");
     }
   }
+
+
+  document.addEventListener("DOMContentLoaded", () => {
+    // Attach event listeners to increment and decrement buttons
+    document.querySelectorAll(".minus-btn, .plus-btn").forEach((button) => {
+        button.addEventListener("click", function () {
+            let targetId = this.getAttribute("data-target");
+            let targetElement = document.getElementById(targetId);
+            let currentValue = parseInt(targetElement.textContent);
+
+            // Update the value based on button type
+            if (this.classList.contains("plus-btn")) {
+                currentValue++;
+            } else if (this.classList.contains("minus-btn") && currentValue > 0) {
+                currentValue--;
+            }
+
+            targetElement.textContent = currentValue;
+        });
+    });
+
+    // Function to navigate back
+    window.goBack = function () {
+        window.history.back();
+    };
+});
+
+
+
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    // Handling innings adjustments
+    const inningsDisplay = document.getElementById("innings");
+    const minusButton = document.querySelector(".minus-btn[data-target='innings']");
+    const plusButton = document.querySelector(".plus-btn[data-target='innings']");
+
+    if (inningsDisplay && minusButton && plusButton) {
+        let innings = parseInt(sessionStorage.getItem("totalInnings") || "4");
+        inningsDisplay.textContent = innings;
+
+        minusButton.addEventListener("click", () => {
+            if (innings > 1) {
+                innings--;
+                inningsDisplay.textContent = innings;
+                sessionStorage.setItem("totalInnings", innings);
+            }
+        });
+
+        plusButton.addEventListener("click", () => {
+            innings++;
+            inningsDisplay.textContent = innings;
+            sessionStorage.setItem("totalInnings", innings);
+        });
+    }
+
+    // Handling Runs Per Wicket adjustments
+    const runsPerWicketDisplay = document.getElementById("winPoints");
+    const minusRunsBtn = document.querySelector(".minus-btn[data-target='winPoints']");
+    const plusRunsBtn = document.querySelector(".plus-btn[data-target='winPoints']");
+
+    if (runsPerWicketDisplay && minusRunsBtn && plusRunsBtn) {
+        let runsPerWicket = parseInt(localStorage.getItem("runsPerWicket") || "0");
+        runsPerWicketDisplay.textContent = runsPerWicket;
+
+        minusRunsBtn.addEventListener("click", () => {
+            if (runsPerWicket > 0) {
+                runsPerWicket--;
+                runsPerWicketDisplay.textContent = runsPerWicket;
+                localStorage.setItem("runsPerWicket", runsPerWicket);
+            }
+        });
+
+        plusRunsBtn.addEventListener("click", () => {
+            runsPerWicket++;
+            runsPerWicketDisplay.textContent = runsPerWicket;
+            localStorage.setItem("runsPerWicket", runsPerWicket);
+        });
+    }
+
+    // Load Tournament Name
+    window.onload = function () {
+        const tournamentName = localStorage.getItem("tournamentName");
+        if (tournamentName) {
+            document.getElementById("tournamentInput").value = tournamentName;
+        }
+    };
+
+    // Function to navigate back
+    window.goBack = function () {
+        window.history.back();
+    };
+});
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const runsPerWicketDisplay = document.getElementById("winPoints");
+    const minusRunsBtn = document.querySelector(".minus-btn[data-target='winPoints']");
+    const plusRunsBtn = document.querySelector(".plus-btn[data-target='winPoints']");
+
+    if (runsPerWicketDisplay && minusRunsBtn && plusRunsBtn) {
+        let runsPerWicket = parseInt(localStorage.getItem("runsPerWicket")) || 0;
+        runsPerWicketDisplay.textContent = runsPerWicket;
+
+        minusRunsBtn.addEventListener("click", () => {
+            if (runsPerWicket > 0) {
+                runsPerWicket--;
+                runsPerWicketDisplay.textContent = runsPerWicket;
+                localStorage.setItem("runsPerWicket", runsPerWicket);
+            }
+        });
+
+        plusRunsBtn.addEventListener("click", () => {
+            runsPerWicket++;
+            runsPerWicketDisplay.textContent = runsPerWicket;
+            localStorage.setItem("runsPerWicket", runsPerWicket);
+        });
+    }
+});

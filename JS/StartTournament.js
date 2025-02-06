@@ -26,18 +26,25 @@ document.addEventListener("DOMContentLoaded", () => {
             alert("Tournament name is required!");
             return;
         }
-
+    
+        // Retrieve existing tournaments from localStorage
         let tournamentData = JSON.parse(localStorage.getItem("tournamentData")) || [];
+    
+        // Create new tournament object
         const newTournament = {
             id: Date.now(),
             name: tournamentName
         };
-
+    
+        // Add the new tournament to the array
         tournamentData.push(newTournament);
+    
+        // Save updated tournament data back to localStorage
         localStorage.setItem("tournamentData", JSON.stringify(tournamentData));
-
+    
         alert("Tournament saved successfully!");
     }
+    
 
     // ✅ Show tournaments in Tournament.html ✅
     const tournamentContainer = document.getElementById("tournament-info-container");
@@ -118,7 +125,7 @@ function continueTournament(index) {
                 playerDiv.classList.add("player");
 
                 const playerInfo = document.createElement("div");
-                playerInfo.innerHTML = `<i class="fas fa-calendar-alt"></i> ${player.name || player}`;
+                playerInfo.innerHTML = `<i class="fas fa-user"></i> ${player.name || player}`;
                 playerDiv.appendChild(playerInfo);
 
                 const playerStats = document.createElement("div");
@@ -148,55 +155,62 @@ function continueTournament(index) {
         const inningData = [];
         const inningDiv = document.querySelector(`.inning:nth-child(${inningNumber})`);
         if (!inningDiv) return;
-
+    
         const playersDiv = inningDiv.querySelectorAll(".player");
-
+    
         playersDiv.forEach(playerDiv => {
             const playerName = playerDiv.querySelector("div").textContent.trim();
             const runsInput = parseInt(playerDiv.querySelector(".runs-input").value) || 0;
             const wicketsInput = parseInt(playerDiv.querySelector(".wickets-input").value) || 0;
-
+    
             if (playerTotals[playerName]) {
                 const previousInningData = playerTotals[playerName].previousInningData[inningNumber - 1] || { runs: 0, wickets: 0 };
-
+    
                 playerTotals[playerName].runs -= previousInningData.runs;
                 playerTotals[playerName].wickets -= previousInningData.wickets;
-
+    
                 playerTotals[playerName].runs += runsInput;
                 playerTotals[playerName].wickets += wicketsInput;
-
+    
                 playerTotals[playerName].previousInningData[inningNumber - 1] = { runs: runsInput, wickets: wicketsInput };
             }
-
+    
             inningData.push({ name: playerName, runs: runsInput, wickets: wicketsInput });
         });
-
+    
+        // Store the inning data in sessionStorage
         sessionStorage.setItem(`inning${inningNumber}Data`, JSON.stringify(inningData));
+    
         alert(`Inning ${inningNumber} data saved successfully!`);
     }
-
+    
     function updatePlayerTotals() {
+        const runsPerWicket = parseInt(localStorage.getItem("runsPerWicket")) || 0; // Get the runs per wicket value from localStorage
         const playerTotalsList = document.getElementById("player-totals");
         if (!playerTotalsList) return;
-
+    
         playerTotalsList.innerHTML = ""; // Clear existing totals
-
+    
         const sortedPlayerNames = Object.keys(playerTotals).sort((a, b) => playerTotals[b].runs - playerTotals[a].runs);
-
+    
         sortedPlayerNames.forEach(playerName => {
             const player = playerTotals[playerName];
-
+    
+            // Add runs per wicket to the total runs
+            const totalRuns = player.runs + (player.wickets * runsPerWicket);
+    
             const totalDiv = document.createElement("li");
             totalDiv.innerHTML = `
                 <div class="player-name">${playerName}</div>
-                <div class="run">Runs: ${player.runs}</div>
-                <div class="wicket">Wickets: ${player.wickets}</div>
+                <div class="run">R: ${player.runs}</div>
+                <div class="wicket">W: ${player.wickets}</div>
+                <div class="total runs">TR: ${totalRuns}</div>
             `;
-
+    
             playerTotalsList.appendChild(totalDiv);
         });
     }
-
+    
     function handleInputChanges() {
         document.querySelectorAll(".runs-input, .wickets-input").forEach(input => {
             input.addEventListener("input", updatePlayerTotals);
@@ -222,3 +236,6 @@ window.onload = function() {
         };
     }
 };
+
+
+

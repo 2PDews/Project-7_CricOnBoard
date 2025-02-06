@@ -1,203 +1,135 @@
-/* Basic Styling */
+/* Global Styles */
 body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #111; /* Deep black background */
+    color: #f1f1f1; /* Soft white text */
     margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #1a1a1a; /* Glossy black */
-    color: #f1f1f1; /* Light gray text */
-    font-size: 14px;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* Header */
-.header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    height: 60px;
-    background: linear-gradient(145deg, #000000, #1c1c1c); /* Glossy black gradient */
-    padding: 0 15px;
-    border-bottom: 1px solid #333;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-}
-
-.header .title {
-    font-size: 18px;
-    font-weight: bold;
-    color: #f1c40f; /* Yellow title */
-    text-shadow: 2px 2px 5px rgba(241, 196, 15, 0.5); /* Subtle yellow glow */
-}
-
-.back-button {
-    position: absolute;
-    top: 15px;
-    left: 15px;
-}
-
-.right-icons {
-    position: absolute;
-    right: 15px;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
+/* Back Button */
 .back-button a {
     text-decoration: none;
-    color: #f1c40f; /* Yellow icon */
-    font-size: 24px;
-    transition: color 0.3s;
+    color: #f1c40f; /* Glossy yellow */
+    font-size: 1.5em;
+    margin-left: 20px;
+    display: inline-block;
+    padding: 10px 15px;
 }
 
 .back-button a:hover {
-    color: #d4ac0d; /* Brighter yellow */
+    color: #e2b607; /* Lighter yellow */
+    transform: scale(1.05);
 }
 
 /* Navigation Icons */
 .nav-icons {
-    display: flex;
-    justify-content: space-around;
-    padding: 10px 0;
-    background: linear-gradient(145deg, #1a1a1a, #2b2b2b); /* Glossy black gradient */
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.4);
+    text-align: center;
+    margin-top: 0px;
 }
 
 .nav-icons i {
-    font-size: 20px;
-    color: white;
-    transition: color 0.3s, transform 0.3s;
+    font-size: 2em;
+    color: #f1c40f; /* Glossy yellow */
 }
 
-.nav-icons .active {
-    color: #f1c40f; /* Yellow for active icon */
+button {
+    background: linear-gradient(145deg, #f1c40f, #d4ac0d); /* Glossy yellow gradient */
+    color: black;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 200px;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.2em;
+    cursor: pointer;
+    margin: 20px 100px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease-in-out;
+    display: inline-block;
 }
 
-.nav-icons i:hover {
-    color: #f1c40f;
-    transform: scale(1.2);
+button:hover {
+    background: linear-gradient(145deg, #e2b607, #f1c40f); /* Slightly lighter yellow */
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+/* Tournament List Container */
+#tournament-info-container {
+    margin-top: 40px;
+    padding: 0 20px;
+}
+
+/* Card-like Tournament Items */
+.tournament-card {
+    background: linear-gradient(145deg, #333, #444); /* Dark gradient */
+    padding: 20px;
+    margin: 15px 0;
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+    color: #f1f1f1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.2em;
+    font-weight: 500;
+}
+
+.tournament-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+}
+
+/* Buttons inside Tournament Cards */
+.tournament-card button {
+    background: linear-gradient(145deg, #f1c40f, #d4ac0d); /* Glossy yellow */
+    color: black;
+    padding: 8px 20px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1em;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.tournament-card button:hover {
+    background-color: #e2b607; /* Lighter yellow */
+    transform: scale(1.05);
 }
 
 /* Floating Action Button */
 .fab {
     position: fixed;
-    bottom: 20px;
+    top: 20px; /* Position at the top */
     right: 20px;
-    width: 60px; /* Increased FAB size */
-    height: 60px;
-    background: linear-gradient(145deg, #f1c40f, #d4ac0d); /* Glossy yellow gradient */
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    background-color: #f1c40f;
     color: black;
-    font-size: 24px; /* Increased icon size */
-    box-shadow: 0px 4px 15px rgba(241, 196, 15, 0.5); /* Yellow glow */
+    padding: 15px;
+    border-radius: 50%;
+    font-size: 2em;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
     cursor: pointer;
-    transition: transform 0.3s, box-shadow 0.3s;
+    z-index: 100;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .fab:hover {
     transform: scale(1.1);
-    box-shadow: 0px 6px 20px rgba(241, 196, 15, 0.7);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
 }
 
-/* Popup Overlay */
-.popup-overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    z-index: 1000;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Popup Content */
-.popup-content {
-    background: linear-gradient(145deg, #1a1a1a, #2b2b2b); /* Glossy black background */
-    color: #f1f1f1;
-    width: 80%;
-    max-width: 350px;
-    border-radius: 10px;
-    padding: 20px;
-    text-align: center;
-    position: relative;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
-}
-
-.popup-content h2 {
-    margin-top: 0;
-    margin-bottom: 15px;
-    font-size: 18px;
-    color: #f1c40f; /* Yellow heading */
-}
-
-.popup-content button {
-    background: linear-gradient(145deg, #f1c40f, #d4ac0d); /* Glossy yellow */
-    color: black;
-    border: none;
-    padding: 10px 20px;
-    margin: 8px 4px;
-    border-radius: 5px;
-    font-size: 14px;
+/* Style for the tournament card's title */
+.tournament-card .title {
+    font-size: 1.5em;
     font-weight: bold;
-    cursor: pointer;
-    transition: transform 0.3s, box-shadow 0.3s;
+    color: #f1c40f;
 }
 
-.popup-content button:hover {
-    transform: scale(1.05);
-    box-shadow: 0px 4px 10px rgba(241, 196, 15, 0.6);
+/* Style for the tournament description */
+.tournament-card .description {
+    font-size: 1.1em;
+    color: #e2e2e2;
 }
 
-/* Close Icon */
-.close-icon {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 20px;
-    font-weight: bold;
-    color: #f1c40f; /* Yellow close icon */
-    cursor: pointer;
-    transition: color 0.3s;
-}
-
-.close-icon:hover {
-    color: red;
-}
-
-/* Responsive Adjustments */
-@media (max-width: 480px) {
-    .popup-content {
-        padding: 15px;
-    }
-
-    .popup-content button {
-        width: 100%;
-    }
-}
-.tournament-item {
-    background-color: #f4f4f4;
-    padding: 15px;
-    margin: 10px 0;
-    border-radius: 5px;
-}
-
-.tournament-name {
-    font-size: 1.2em;
-    font-weight: bold;
-}
-
-.continue-btn {
-    padding: 10px 20px;
-    background-color: #28a745;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.continue-btn:hover {
-    background-color: #218838;
-}

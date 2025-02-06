@@ -5,8 +5,10 @@ body {
     padding: 0;
     background-color: #000; /* Black background */
     color: #f1c40f; /* Yellow text */
+    line-height: 1.6;
 }
 
+/* Header */
 .header {
     background-color: #f1c40f; /* Bright yellow */
     color: #000; /* Black text */
@@ -14,7 +16,16 @@ body {
     padding: 20px;
     font-size: 28px;
     font-weight: bold;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.header:hover {
+    background-color: #f39c12; /* Darker yellow */
+    transform: scale(1.05);
 }
 
 /* Section Styles */
@@ -25,8 +36,14 @@ body {
     max-width: 700px;
     background-color: #111; /* Dark gray for contrast */
     color: #f1c40f; /* Yellow text */
-    border-radius: 10px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+}
+
+.player-selection-section:hover,
+.selected-players-section:hover {
+    transform: scale(1.02);
 }
 
 h3 {
@@ -36,6 +53,7 @@ h3 {
     color: #f1c40f; /* Yellow headings */
     text-align: center;
     text-transform: uppercase;
+    letter-spacing: 1.5px;
 }
 
 /* List Styles */
@@ -49,9 +67,17 @@ ul li {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 12px;
-    border-bottom: 1px solid #333; /* Subtle border */
+    padding: 15px;
+    border-bottom: 1px solid #333;
     color: #000000; /* Light text for list items */
+    background-color: #f39c12; /* Dynamic yellow background */
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+ul li:hover {
+    background-color: #f1c40f; /* Hover effect to change to lighter yellow */
 }
 
 ul li:last-child {
@@ -60,20 +86,32 @@ ul li:last-child {
 
 /* Button Styles */
 button {
-    padding: 8px 15px;
+    padding: 10px 20px;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     background-color: #f1c40f; /* Bright yellow */
     color: #000; /* Black text */
-    font-size: 14px;
+    font-size: 16px;
     font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    margin-top: 15px;
 }
 
 button:hover {
     background-color: #f39c12; /* Darker yellow */
-    transform: scale(1.05); /* Subtle zoom effect on hover */
+    transform: scale(1.05); /* Subtle zoom effect */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Hover shadow */
+}
+
+button:focus {
+    outline: none;
+    box-shadow: 0 0 8px rgba(241, 196, 15, 0.7); /* Golden glow on focus */
+}
+
+button:active {
+    background-color: #e67e22; /* Active darker shade */
+    transform: scale(0.98); /* Shrink effect when clicked */
 }
 
 /* Footer Styles */
@@ -88,15 +126,16 @@ button:hover {
     background-color: #f1c40f; /* Bright yellow */
     color: #000; /* Black text */
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 20px;
 }
 
 .footer .button:hover {
     background-color: #f39c12; /* Darker yellow */
-    transform: scale(1.05); /* Subtle zoom effect on hover */
+    transform: scale(1.05);
 }
 
 /* Responsive Design */
@@ -116,8 +155,8 @@ button:hover {
     }
 
     button {
-        font-size: 13px;
-        padding: 6px 12px;
+        font-size: 14px;
+        padding: 8px 16px;
     }
 
     .footer .button {
@@ -125,6 +164,7 @@ button:hover {
         padding: 10px 20px;
     }
 }
+
 /* Name Input Container */
 .name {
     margin: 20px auto;
@@ -146,14 +186,15 @@ button:hover {
     text-align: center;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
     cursor: not-allowed; /* Indicates read-only state */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* Focus and Hover States */
 .name input:focus, 
 .name input:hover {
     outline: none;
-    border-color: #f39c12; /* Darker yellow for interaction */
-    box-shadow: 0 4px 12px rgba(243, 156, 18, 0.5); /* Glow effect on hover/focus */
+    border-color: #e67e22; /* Darker yellow for interaction */
+    box-shadow: 0 4px 12px rgba(230, 126, 34, 0.5); /* Glow effect on hover/focus */
 }
 
 /* Disabled Text Field */
@@ -163,54 +204,31 @@ button:hover {
     cursor: not-allowed;
 }
 
-@media (max-width: 480px) {
-    .header {
-        font-size: 20px;
-        padding: 10px;
-    }
-
-    .player-selection-section, .selected-players-section {
-        padding: 15px;
-        max-width: 95%;
-    }
-
-    h3 {
-        font-size: 18px;
-    }
-
-    button {
-        font-size: 12px;
-        padding: 5px 10px;
-    }
-
-    .footer .button {
-        font-size: 12px;
-        padding: 8px 16px;
-    }
-}
-
-
 /* Player and Stats Lists */
 ul {
     list-style-type: none;
     padding: 0;
     margin: 0;
-  }
-  
-  li {
-    background: #FFD700;
+}
+
+li {
+    background: #f1c40f; /* Yellow background */
     margin: 10px 0;
     padding: 15px;
-    border-radius: 6px;
-    color: #121212;
+    border-radius: 8px;
+    color: #121212; /* Dark text for contrast */
     font-weight: 600;
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
-  
-  /* Remove button styling */
-  .remove-button {
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+li:hover {
+    background: #f39c12; /* Hover effect for a darker shade of yellow */
+}
+
+.remove-button {
     background: #dc3545; /* Red color */
     color: rgb(0, 0, 0);
     border: none;
@@ -218,9 +236,10 @@ ul {
     padding: 8px 15px;
     cursor: pointer;
     font-size: 14px;
-  }
-  
-  .remove-button:hover {
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.remove-button:hover {
     background: #c82333; /* Darker red on hover */
-  }
-  
+    transform: scale(1.05); /* Slight zoom effect on hover */
+}

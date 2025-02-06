@@ -1,61 +1,118 @@
-// Handle Floating Action Button (FAB) and Pop-up behavior
-const fab = document.getElementById('fab');
-const popup = document.getElementById('popup');
-const closePopupBtn = document.getElementById('close-popup-btn');
-
-// Open pop-up when FAB is clicked
-fab.addEventListener('click', () => {
-    popup.style.display = 'flex'; // Ensure the popup becomes visible
-});
-
-// Close pop-up when the close icon is clicked
-closePopupBtn.addEventListener('click', () => {
-    popup.style.display = 'none'; // Hide the popup
-});
-
-// Close pop-up by clicking outside the content area
-popup.addEventListener('click', (e) => {
-    if (e.target === popup) {
-        popup.style.display = 'none';
-    }
-});
 
 // Handle redirection on button clicks
 document.getElementById('create-tournament-btn').addEventListener('click', () => {
     window.location.href = 'CreateTournament.html'; // Redirect to Create Tournament page
 });
 
-
-
-// JavaScript for Tournament.js
-document.addEventListener("DOMContentLoaded", () => {
-    const tournamentInfoContainer = document.getElementById('tournament-info-container');
-
-    // Retrieve the tournaments from localStorage
-    const tournaments = JSON.parse(localStorage.getItem('tournaments')) || [];
-
-    // Clear any previous tournament listings
-    tournamentInfoContainer.innerHTML = '';
-
-    // Loop through the tournaments and display them numerically
-    tournaments.forEach((tournament, index) => {
-        const tournamentDiv = document.createElement('div');
-        tournamentDiv.classList.add('tournament-item');
-        
-        // Create the tournament display
-        tournamentDiv.innerHTML = `
-            <div class="tournament-name">Tournament ${index + 1}: ${tournament}</div>
-            <button class="continue-btn" onclick="continueTournament(${index})">Continue</button>
-        `;
-        
-        tournamentInfoContainer.appendChild(tournamentDiv);
-    });
+document.getElementById('follow-tournament-btn').addEventListener('click', () => {
+    alert('You are following a tournament.');
+    // You can implement more functionality here if needed.
 });
 
-// Function to handle the "Continue" button click
+// Function to continue tournament (redirection or any further logic)
 function continueTournament(index) {
-    // You can redirect to another page or load more tournament details
-    // For example, redirecting to a tournament details page:
-    alert('Continuing to tournament ' + (index + 1));
-    // window.location.href = 'TournamentDetails.html'; // Uncomment this to redirect to tournament details page
+    const tournaments = JSON.parse(localStorage.getItem('tournaments')) || [];
+    const tournament = tournaments[index];
+    
+    // You can implement further logic here, like redirecting to a tournament page with the specific tournament data
+    alert(`Continuing Tournament: ${tournament}`);
+    // Example: window.location.href = `TournamentPage.html?name=${tournament}`;
 }
+
+
+
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const tournamentName = localStorage.getItem("tournamentName") || "Tournament";
+            document.getElementById("tournamentName").textContent = tournamentName;
+        });
+
+        // Redirect to StartTournament.html while preserving data
+        document.getElementById("continueButton").addEventListener("click", function () {
+            window.location.href = "StartTournament.html";
+        });
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const tournamentContainer = document.getElementById("tournament-info-container");
+            const tournaments = JSON.parse(localStorage.getItem("tournamentData")) || [];
+        
+            if (tournaments.length === 0) {
+                tournamentContainer.innerHTML = "<p>No tournaments available. Create one!</p>";
+            } else {
+                tournamentContainer.innerHTML = ""; // Clear previous listings
+        
+                tournaments.forEach((tournament, index) => {
+                    const tournamentDiv = document.createElement("div");
+                    tournamentDiv.classList.add("tournament-item");
+        
+                    tournamentDiv.innerHTML = `
+                        <p><strong>Sr. No:</strong> ${index + 1}</p>
+                        <p><strong>League Name:</strong> ${tournament.name}</p>
+                        <button class="continue-btn" data-id="${tournament.id}">Continue Tournament</button>
+                    `;
+                    tournamentContainer.appendChild(tournamentDiv);
+                });
+            }
+        
+            // Continue Tournament button click logic
+            document.querySelectorAll(".continue-btn").forEach(button => {
+                button.addEventListener("click", (event) => {
+                    const tournamentId = event.target.getAttribute("data-id");
+                    const selectedTournament = tournaments.find(t => t.id == tournamentId);
+                    if (selectedTournament) {
+                        sessionStorage.setItem("currentTournament", JSON.stringify(selectedTournament));
+                        window.location.href = "TournamentDetails.html"; // Redirect to tournament details
+                    } else {
+                        alert("Tournament not found!");
+                    }
+                });
+            });
+        });
+        document.addEventListener("DOMContentLoaded", () => {
+            const tournamentContainer = document.getElementById("tournament-info-container");
+        
+            // Retrieve tournament data from localStorage
+            const tournaments = JSON.parse(localStorage.getItem("tournamentData")) || [];
+        
+            // Check if there are no tournaments
+            if (tournaments.length === 0) {
+                tournamentContainer.innerHTML = "<p>No tournaments available. Create one!</p>";
+            } else {
+                tournamentContainer.innerHTML = ""; // Clear previous listings
+        
+                tournaments.forEach((tournament, index) => {
+                    // Create div for each tournament
+                    const tournamentDiv = document.createElement("div");
+                    tournamentDiv.classList.add("tournament-item");
+        
+                    // Populate the innerHTML with tournament details
+                    tournamentDiv.innerHTML = `
+                        <p><strong>Sr. No:</strong> ${index + 1}</p>
+                        <p><strong>League Name:</strong> ${tournament.name}</p>
+                        <button class="continue-btn" data-id="${tournament.id}">Continue Tournament</button>
+                    `;
+        
+                    // Append the tournament item to the container
+                    tournamentContainer.appendChild(tournamentDiv);
+                });
+            }
+        
+            // Handle "Continue Tournament" button click
+            document.querySelectorAll(".continue-btn").forEach(button => {
+                button.addEventListener("click", (event) => {
+                    const tournamentId = event.target.getAttribute("data-id");
+                    const selectedTournament = tournaments.find(t => t.id == tournamentId);
+        
+                    if (selectedTournament) {
+                        // Store the selected tournament in sessionStorage
+                        sessionStorage.setItem("currentTournament", JSON.stringify(selectedTournament));
+        
+                        // Redirect to the TournamentDetails.html page
+                        window.location.href = "TournamentDetails.html";
+                    } else {
+                        alert("Tournament not found!");
+                    }
+                });
+            });
+        });
+                

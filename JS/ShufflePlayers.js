@@ -59,3 +59,4 @@ document.addEventListener("DOMContentLoaded", () => {
     // Initial rendering of selected players
     renderSelectedPlayers();
 });
+

@@ -1,50 +1,55 @@
 /* General Styles */
 body {
   margin: 0;
-  font-family: 'Arial', sans-serif;
-  background-color: #000; /* Black background */
-  color: #FFD700; /* Yellow text color */
+  font-family: 'Poppins', sans-serif;
+  background-color: #000;
+  color: #FFD700;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   flex-direction: column;
-  overflow: hidden;
-  padding: 10px; /* Add padding to avoid edges */
+  padding: 10px;
+  transition: background-color 0.3s ease;
 }
 
 a {
-  text-decoration: none; /* Remove default underline for links */
-  color: inherit; /* Make links inherit the color from their parent */
+  text-decoration: none;
+  color: inherit;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  margin: 0; /* Remove margin for headings */
-  padding: 0; /* Remove padding for headings */
+  margin: 0;
+  padding: 0;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-shadow: 0px 0px 10px rgba(255, 215, 0, 0.8);
 }
 
 /* Container Styles */
 .container {
   font-family: 'Roboto', sans-serif;
   padding: 30px;
-  background-color: #222; /* Darker background for the container */
+  background-color: rgba(34, 34, 34, 0.9);
   border-radius: 15px;
   width: 90%;
   max-width: 900px;
   height: 90%;
-  overflow-y: auto; /* Allow scrolling if content overflows */
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5); /* Stronger shadow for depth */
-  transition: all 0.3s ease-in-out; /* Smooth transitions */
+  overflow-y: auto;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 .container:hover {
-  transform: translateY(-5px); /* Subtle hover effect */
+  transform: translateY(-5px);
+  box-shadow: 0 0 25px rgba(255, 215, 0, 0.8);
 }
 
 /* Header Styles */
 .header {
-  background-color: #333; /* Dark header background */
-  color: #FFD700; /* Yellow text color */
+  background-color: rgba(51, 51, 51, 0.9);
+  color: #FFD700;
   padding: 20px 30px;
   border-radius: 10px;
   margin-bottom: 25px;
@@ -53,8 +58,9 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   font-size: 2.5em;
   font-weight: bold;
-  text-transform: uppercase;
   position: relative;
+  text-shadow: 0px 0px 15px rgba(255, 215, 0, 1);
+  border: 2px solid #FFD700;
 }
 
 .header::after {
@@ -65,405 +71,209 @@ h1, h2, h3, h4, h5, h6 {
   transform: translateX(-50%);
   width: 85%;
   height: 6px;
-  background-color: #FFD700; /* Yellow underline */
+  background-color: #FFD700;
   border-radius: 5px;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 1);
 }
 
-/* Inning Section - Highlighted and Center-Aligned */
+/* Inning Section */
 .inning {
-  background-color: #444; /* Highlighted background for innings */
+  background-color: rgba(68, 68, 68, 0.9);
   padding: 20px;
   border-radius: 12px;
   margin-bottom: 25px;
-  text-align: center; /* Center the inning section */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  text-align: center;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+  transition: transform 0.3s ease-in-out;
+}
+
+.inning:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
 }
 
 .inning h2 {
-  color: #FFD700; /* Yellow color for inning headers */
-  margin: 0;
+  color: #FFD700;
   font-size: 2em;
+  text-shadow: 0px 0px 12px rgba(255, 215, 0, 1);
 }
 
-/* Player Styles */
+/* Player Section */
+.player-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
 .player {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #444; /* Slightly lighter background for players */
-  padding: 15px;
-  border-radius: 8px;
-  margin-bottom: 15px;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2); /* Light shadow */
-  transition: all 0.2s ease; /* Smooth transition for hover */
+  background-color: rgba(34, 34, 34, 0.9);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(255, 215, 0, 0.3);
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease;
 }
 
 .player:hover {
-  transform: translateY(-3px); /* Hover effect to lift players */
+  transform: translateY(-5px);
+  background-color: rgba(85, 85, 85, 0.9);
+  box-shadow: 0 0 18px rgba(255, 215, 0, 0.6);
 }
 
 .player i {
-  margin-right: 15px;
-  color: #FFD700; /* Yellow color for player icon */
+  color: #FFD700;
+  font-size: 1.6em;
 }
 
-.player .player-stats {
-  display: flex;
-  gap: 15px;
+.player .player-info {
+  color: #FFD700;
 }
 
-.player input {
-  background-color: #555; /* Dark input field */
-  border: 2px solid #FFD700; /* Yellow border */
-  padding: 8px 15px;
+.player .player-stats input {
+  background-color: #333;
+  border: 2px solid #FFD700;
+  padding: 10px;
   border-radius: 8px;
-  color: #FFD700; /* Yellow text */
-  width: 70px;
-  font-size: 1.2em;
+  color: #FFD700;
+  font-size: 1.1em;
 }
 
-.player input:focus {
+.player .player-stats input:focus {
   outline: none;
-  background-color: #777; /* Lighter background on focus */
-  color: black; /* Change text to black on focus */
-  border-color: #FFA500; /* Orange border on focus */
+  background-color: #555;
+  border-color: #FFA500;
 }
 
-/* Button Styles - Yellow and Black Theme */
-.submit-btn {
-  background-color: #FFD700; /* Yellow button background */
+/* Buttons */
+.submit-btn, #saveTournamentButton, #goToTournamentButton {
+  background: linear-gradient(45deg, #FFD700, #FFAA00);
   border: none;
   padding: 15px;
   border-radius: 8px;
-  color: black; /* Black text */
+  color: black;
   cursor: pointer;
-  margin-top: 20px;
   width: 100%;
-  text-align: center;
   font-size: 1.1em;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.submit-btn:hover {
-  background-color: #e6b800; /* Darker yellow on hover */
-  transform: scale(1.05); /* Slightly enlarge button */
-}
-
-.submit-btn:active {
-  background-color: #cc9900; /* Even darker yellow on click */
-  transform: scale(0.95); /* Slight shrink on click */
-}
-
-/* Save Tournament Button */
-#saveTournamentButton {
-  background-color: #FFD700; /* Yellow background */
-  color: black; /* Black text */
-  padding: 15px 30px;
-  border: none;
-  border-radius: 12px;
-  font-size: 1.3em;
-  width: auto;
-  margin-top: 25px;
   text-align: center;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  transition: all 0.3s ease;
+  box-shadow: 0px 0px 10px rgba(255, 215, 0, 1);
 }
 
-#saveTournamentButton:hover {
-  background-color: #e6b800; /* Darker yellow on hover */
-  transform: scale(1.05); /* Slightly enlarge button */
+.submit-btn:hover, #saveTournamentButton:hover, #goToTournamentButton:hover {
+  background: linear-gradient(45deg, #FFAA00, #FFD700);
+  transform: scale(1.05);
 }
 
-#saveTournamentButton:active {
-  background-color: #cc9900; /* Even darker yellow on click */
-  transform: scale(0.95); /* Slight shrink on click */
-}
-
-/* Input Field Styles */
-#tournamentInput {
-  background-color: #333; /* Dark background for input */
-  color: #FFD700; /* Yellow text color */
-  border: 2px solid #FFD700; /* Yellow border */
-  padding: 12px 25px;
-  font-size: 1.3em; /* Larger text */
-  width: 80%;
-  max-width: 550px;
-  border-radius: 12px;
-  text-align: center;
-  outline: none;
-  box-shadow: 0 6px 12px rgba(255, 223, 0, 0.3); /* Subtle yellow shadow */
-  transition: background-color 0.3s ease, border-color 0.3s ease;
-}
-
-#tournamentInput:focus {
-  background-color: #555; /* Lighter background on focus */
-  border-color: #FFD700; /* Highlight border in yellow */
-  color: #FFD700; /* Yellow text */
-}
-
-/* Tournament Button Styles */
-#goToTournamentButton {
-  background-color: #FFD700; /* Yellow background */
-  color: black; /* Black text */
-  font-size: 1.1em; /* Slightly larger font size */
-  padding: 12px 25px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-#goToTournamentButton:hover {
-  background-color: #e6b800; /* Darker yellow on hover */
-  transform: scale(1.05); /* Slightly enlarge button */
-}
-
-#goToTournamentButton:active {
-  background-color: #cc9900; /* Even darker yellow on click */
-  transform: scale(0.95); /* Slight shrink on click */
-}
-/* Player Totals Section Styles - Enhanced */
+/* Totals Section */
 #totals-container {
-  background-color: #222; /* Dark background for the container */
-  padding: 25px; /* Padding inside the container */
-  border-radius: 15px; /* Rounded corners for a smooth effect */
-  margin-top: 30px; /* Space above the container */
-  width: 100%; /* Full width */
-  max-width: 700px; /* Limit the maximum width for better alignment */
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Subtle shadow for more depth */
-  display: flex; /* Flexbox for splitting into columns */
-  flex-direction: row; /* Side-by-side columns */
-  justify-content: space-between; /* Ensure space between the two sections */
+  background-color: rgba(34, 34, 34, 0.9);
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
 }
 
 #totals-container h3 {
-  font-size: 2em; /* Larger font size for the heading */
-  color: #FFD700; /* Yellow color for the text */
-  margin-bottom: 20px; /* Space below the heading */
-  text-align: center; /* Center align the title */
-  width: 100%; /* Ensure full-width title */
-}
-
-/* Left section - Player Runs */
-#left-totals {
-  width: 48%; /* Slightly less than half width */
-  background-color: #333; /* Dark background for the left side */
-  padding: 20px;
-  border-radius: 10px; /* Rounded corners */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
-}
-
-#left-totals h4 {
-  font-size: 1.5em; /* Slightly larger font for the heading */
-  color: #FFD700; /* Yellow for the section title */
-  text-align: center;
-  margin-bottom: 15px;
-}
-
-#left-totals ul {
-  list-style-type: none; /* Remove default bullet points */
-  padding: 0;
-  margin: 0;
-  color: #FFD700; /* Yellow text */
-  font-family: 'Arial', sans-serif;
-}
-
-#left-totals li {
-  padding: 10px;
-  background-color: #444; /* Slightly lighter dark background */
-  border-radius: 8px;
-  margin-bottom: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 1.1em;
-  transition: background-color 0.3s ease;
-}
-
-#left-totals li:hover {
-  background-color: #555; /* Slightly lighter on hover */
-}
-
-.run {
-  color: #4CAF50; /* Green for runs */
-  font-weight: bold;
-  text-align: center;
-}
-
-/* Right section - Player Wickets */
-#right-totals {
-  width: 48%; /* Slightly less than half width */
-  background-color: #333; /* Dark background for the right side */
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
-}
-
-#right-totals h4 {
-  font-size: 1.5em;
-  color: #FFD700; /* Yellow for section title */
-  text-align: center;
-  margin-bottom: 15px;
-}
-
-#right-totals ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
+  font-size: 2em;
   color: #FFD700;
-  font-family: 'Arial', sans-serif;
-}
-
-#right-totals li {
-  padding: 10px;
-  background-color: #444;
-  border-radius: 8px;
-  margin-bottom: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 1.1em;
-  transition: background-color 0.3s ease;
-}
-
-#right-totals li:hover {
-  background-color: #555;
-}
-
-.wicket {
-  color: #F44336; /* Red for wickets */
-  font-weight: bold;
-  text-align: center;
-}
-
-/* Responsive adjustments for smaller screens */
-@media (max-width: 768px) {
-  #totals-container {
-    flex-direction: column; /* Stack the sections on smaller screens */
-    padding: 15px;
-    width: 100%;
-  }
-
-  #left-totals, #right-totals {
-    width: 100%; /* Full width on smaller screens */
-    margin-bottom: 20px; /* Space between sections */
-  }
-
-  #totals-container h3 {
-    font-size: 1.8em; /* Slightly smaller heading for smaller screens */
-  }
-
-  #left-totals h4, #right-totals h4 {
-    font-size: 1.4em; /* Smaller section titles */
-  }
-
-  #left-totals li, #right-totals li {
-    font-size: 1em; /* Smaller font size for list items */
-  }
-}
-
-
-/* Player Totals List Styling */
-#player-totals {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  color: #FFD700;
-  font-family: 'Arial', sans-serif;
+  text-shadow: 0px 0px 10px rgba(255, 215, 0, 1);
 }
 
 #player-totals li {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 12px;
-  font-size: 1.3em;
-  margin: 12px 0;
+  background-color: #222;
   padding: 15px;
-  background-color: #333;
   border-radius: 12px;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  align-items: center;
+  transition: transform 0.2s ease;
+  position: relative;
 }
 
 #player-totals li:hover {
   background-color: #444;
-  transform: translateY(-3px); /* Lift effect */
+  transform: translateY(-3px);
+}
+
+.run, .wicket {
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 1.2em;
+  font-weight: bold;
 }
 
 .run {
-  color: #4CAF50;
+  background-color: #4CAF50;
+  box-shadow: 0px 0px 10px #4CAF50;
+  padding: 12px;
+  border-radius: 8px;
   font-weight: bold;
   text-align: center;
+  font-size: 1.4em;
+  width: 120px;
+  display: inline-block;
+  box-shadow: 0px 0px 15px rgba(0, 255, 13, 0.8); /* Neon Blue Glow */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 .wicket {
-  color: #F44336;
+  background-color: #F44336;
+  box-shadow: 0px 0px 10px #F44336;
+  padding: 12px;
+  border-radius: 8px;
   font-weight: bold;
   text-align: center;
+  font-size: 1.4em;
+  width: 120px;
+  display: inline-block;
+  box-shadow: 0px 0px 15px rgba(255, 0, 0, 0.8); /* Neon Blue Glow */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
-.player-name {
-  color: #FFD700;
-  font-weight: bold;
-  text-align: left;
-  font-size: 1.2em;
-}
-
-/* Responsive Adjustments */
+/* Responsive */
 @media (max-width: 768px) {
   .container {
     width: 95%;
   }
 
-  .header {
-    font-size: 2.2em;
-  }
-
-  .inning {
-    padding: 15px;
-  }
-
-  .player {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .player .player-stats {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .player input {
-    width: 100px;
-  }
-
-  .submit-btn {
-    width: auto;
-  }
-
-  #totals-container {
-    padding: 20px;
-    max-width: 100%;
-  }
-
-  #player-totals li {
-    font-size: 1.1em;
-    padding: 12px;
+  .player-container {
     grid-template-columns: 1fr;
   }
 }
+#tournamentInput {
+  background-color: #333;
+  color: #FFD700;
+  border: 2px solid #FFD700;
+  padding: 12px 25px;
+  font-size: 1.3em;
+  width: 80%;
+  max-width: 550px;
+  border-radius: 12px;
+  outline: none;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  display: block;  /* Ensures it behaves as a block element */
+  margin: 0 auto;  /* Centers it horizontally */
+  text-align: center;  /* Centers the text inside */
+}
 
-@media (max-width: 480px) {
-  .header {
-    font-size: 1.8em;
-  }
+#tournamentInput:focus {
+  background-color: #555;
+  border-color: #FFD700;
+  color: #FFD700;
+}
 
-  .container {
-    padding: 10px;
-  }
+/* Total Runs Section */
+.total.runs {
+  background: linear-gradient(45deg, #007BFF, #00A2FF); /* Blue gradient */
+  color: white;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: bold;
+  text-align: center;
+  font-size: 1.4em;
+  width: 120px;
+  display: inline-block;
+  box-shadow: 0px 0px 15px rgba(0, 162, 255, 0.8); /* Neon Blue Glow */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
 
-  .player .buttons button {
-    padding: 10px;
-    font-size: 1.1em;
-  }
+.total.runs:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 0px 20px rgba(0, 162, 255, 1); /* Stronger glow on hover */
 }
