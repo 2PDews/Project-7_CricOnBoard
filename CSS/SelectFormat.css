@@ -10,85 +10,95 @@ body {
 .header {
     display: flex;
     align-items: center;
-    padding: 10px;
-    background-color: #1a1a1a; /* Dark gray for contrast */
+    padding: 15px;
+    background: linear-gradient(90deg, #ffcc00, #ff7700); /* Yellow to orange gradient */
     flex-wrap: wrap;
-    border-bottom: 2px solid #ffe600; /* Yellow divider */
+    border-bottom: 3px solid #ff7700; /* Orange divider */
+    box-shadow: 0 4px 10px rgba(255, 140, 0, 0.4); /* Orange shadow */
 }
 
 .header i {
-    font-size: 24px;
-    color: #ffe600; /* Yellow icons */
+    font-size: 26px;
+    color: #000; /* Black icons for contrast */
     margin-right: 10px;
+    transition: color 0.3s ease;
+}
+
+.header i:hover {
+    color: #fff; /* White hover effect */
 }
 
 .header .title {
     flex-grow: 1;
     text-align: center;
-    margin-top: 10px;
 }
 
 .header .title h1 {
     margin: 0;
-    font-size: 22px;
-    color: #ffe600; /* Vibrant yellow */
-    text-shadow: 1px 1px 5px rgba(255, 230, 0, 0.6); /* Soft yellow glow */
+    font-size: 24px;
+    color: #000; /* Black text */
+    text-shadow: 2px 2px 5px rgba(255, 140, 0, 0.6); /* Orange glow */
+    text-transform: uppercase;
 }
 
 .header .title p {
     margin: 0;
     font-size: 14px;
-    color: #b0b0b0; /* Muted gray text */
-    text-align: center;
+    color: #333; /* Darker muted gray text */
 }
 
 .header .icons {
     display: flex;
     align-items: center;
-    margin-left: 10px;
 }
 
 .header .icons i {
-    font-size: 20px;
+    font-size: 22px;
     margin-left: 15px;
-    color: #ffe600; /* Yellow icons */
+    color: #000;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.header .icons i:hover {
+    color: #fff;
+    transform: scale(1.2);
 }
 
 /* Content styles */
 .content {
     text-align: center;
-    padding: 20px;
+    padding: 25px;
 }
 
 .content h2 {
     margin: 20px 0;
-    font-size: 20px;
-    color: #ffe600; /* Yellow headings */
-    text-shadow: 1px 1px 5px rgba(255, 230, 0, 0.6); /* Soft glow */
+    font-size: 22px;
+    color: #ffcc00; /* Yellow headings */
+    text-shadow: 1px 1px 6px rgba(255, 140, 0, 0.7); /* Glow effect */
+    text-transform: uppercase;
 }
 
 /* Button styles */
 .button {
-    background: linear-gradient(145deg, #ffe600, #d4c200); /* Glossy yellow gradient */
+    background: linear-gradient(145deg, #ffcc00, #ff7700); /* Glossy yellow-to-orange gradient */
     border: none;
-    color: #000000; /* Black text for contrast */
-    padding: 14px;
+    color: #000000; /* Black text */
+    padding: 16px;
     text-align: center;
-    text-decoration: none;
-    font-size: 16px;
+    font-size: 18px;
     margin: 20px auto;
-    width: 80%;
-    border-radius: 10px;
+    width: 85%;
+    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 10px rgba(255, 230, 0, 0.6); /* Yellow shadow */
+    box-shadow: 0 4px 10px rgba(255, 140, 0, 0.6); /* Orange shadow */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .button:hover {
-    transform: scale(1.05); /* Subtle zoom effect */
-    box-shadow: 0 6px 15px rgba(255, 230, 0, 0.8); /* Brighter glow */
+    transform: scale(1.08);
+    box-shadow: 0 6px 15px rgba(255, 140, 0, 0.8); /* Brighter glow */
     cursor: pointer;
 }
 
@@ -101,43 +111,67 @@ body {
     width: 100%;
 }
 
-/* Specific styling for the Next button */
+/* Next button */
 .next-button {
-    background: linear-gradient(145deg, #ffe600, #d4c200); /* Glossy yellow gradient */
-    font-size: 18px;
+    background: linear-gradient(145deg, #ffcc00, #ff7700); /* Glossy yellow gradient */
+    font-size: 20px;
     width: 90%;
-    margin-top: 20px;
-    padding: 14px;
+    margin-top: 25px;
+    padding: 16px;
     border: none;
-    border-radius: 10px;
+    border-radius: 12px;
     color: #000;
-    box-shadow: 0 4px 10px rgba(255, 230, 0, 0.6); /* Yellow shadow */
+    box-shadow: 0 4px 12px rgba(255, 140, 0, 0.6); /* Orange shadow */
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .next-button:hover {
-    background-color: #ffdf00; /* Slightly brighter yellow */
+    background-color: #ffdf00; /* Brighter yellow */
     transform: scale(1.05);
     cursor: pointer;
 }
 
 .next-button:focus {
     outline: none;
-    box-shadow: 0 0 8px rgba(255, 230, 0, 0.8); /* Glow on focus */
+    box-shadow: 0 0 12px rgba(255, 140, 0, 0.9); /* Glow on focus */
+}
+
+/* Input Fields */
+input {
+    width: 90%;
+    padding: 14px;
+    border: 2px solid #ffcc00;
+    border-radius: 8px;
+    font-size: 16px;
+    background: #222; /* Dark input background */
+    color: #f1f1f1;
+    text-align: center;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus,
+input:hover {
+    border-color: #ff7700; /* Orange border on hover/focus */
+    box-shadow: 0 0 10px rgba(255, 140, 0, 0.7);
 }
 
 /* Footer styles */
 .footer {
     display: flex;
     overflow-x: auto;
-    background-color: #1a1a1a; /* Dark gray footer */
-    padding: 10px 0;
-    border-top: 2px solid #ffe600; /* Yellow divider */
+    background: linear-gradient(90deg, #ff7700, #ffcc00); /* Reverse gradient */
+    padding: 12px 0;
+    border-top: 3px solid #ff7700; /* Orange divider */
 }
 
 .footer img {
-    height: 50px;
-    margin: 0 5px;
+    height: 55px;
+    margin: 0 8px;
+    transition: transform 0.3s ease;
+}
+
+.footer img:hover {
+    transform: scale(1.1);
 }
 
 /* Mobile responsiveness */
@@ -148,21 +182,21 @@ body {
     }
 
     .header i {
-        margin-bottom: 10px;
+        margin-bottom: 12px;
     }
 
     .header .title h1 {
-        font-size: 18px;
+        font-size: 20px;
     }
 
     .button {
         width: 90%;
-        padding: 12px;
+        padding: 14px;
     }
 
     .next-button {
-        width: 90%;
-        padding: 14px;
+        width: 95%;
+        padding: 16px;
     }
 
     .footer {
@@ -171,30 +205,30 @@ body {
     }
 
     .footer img {
-        height: 40px;
+        height: 45px;
     }
 }
 
 @media (max-width: 480px) {
     .content h2 {
-        font-size: 16px;
+        font-size: 18px;
     }
 
     .button {
-        font-size: 14px;
-        padding: 12px;
-    }
-
-    .next-button {
         font-size: 16px;
         padding: 14px;
     }
 
+    .next-button {
+        font-size: 18px;
+        padding: 16px;
+    }
+
     .header .title h1 {
-        font-size: 16px;
+        font-size: 18px;
     }
 
     .footer img {
-        height: 35px;
+        height: 40px;
     }
 }

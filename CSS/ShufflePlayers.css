@@ -1,149 +1,110 @@
 /* General Styling */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, #121212, #1f1f1f); /* Subtle gradient background */
+  background: linear-gradient(135deg, #0d0d0d, #222); /* Dark gradient */
   margin: 0;
   padding: 0;
-  color: #FFD700;
-  line-height: 1.6;
+  color: #FFA500; /* Orange */
   text-align: center;
+  line-height: 1.6;
 }
 
+/* Container */
 .container {
   max-width: 700px;
   margin: 50px auto;
-  background: #2a2a2a;
-  padding: 30px;
+  background: #1a1a1a; /* Darker Black */
+  padding: 35px;
   border-radius: 15px;
-  box-shadow: 0 6px 15px rgba(255, 223, 0, 0.4);
+  box-shadow: 0 6px 20px rgba(255, 165, 0, 0.5);
   text-align: center;
   overflow: hidden;
+  transition: 0.3s ease-in-out;
 }
 
-/* Header Styling */
+.container:hover {
+  box-shadow: 0 8px 25px rgba(255, 165, 0, 0.6);
+}
+
+/* Header */
 .header {
-  font-size: 36px;
+  font-size: 38px;
   font-weight: bold;
-  color: #FFD700;
-  background: #121212;
-  padding: 20px;
+  color: #FFD700; /* Gold */
+  background: #111; /* Deep Black */
+  padding: 22px;
   text-align: center;
-  border-radius: 8px;
-  margin-bottom: 30px;
-  box-shadow: 0 4px 12px rgba(255, 223, 0, 0.6);
+  border-radius: 10px;
+  margin-bottom: 35px;
+  box-shadow: 0 5px 15px rgba(255, 165, 0, 0.7);
   text-transform: uppercase;
   letter-spacing: 2px;
+  transition: 0.3s ease-in-out;
 }
 
 .header:hover {
-  background: #1f1f1f;
-  color: #ffbb33;
-  box-shadow: 0 6px 18px rgba(255, 223, 0, 0.6);
+  background: #222;
+  color: #ffbb33; /* Lighter Gold */
+  box-shadow: 0 7px 20px rgba(255, 165, 0, 0.8);
 }
 
-/* Shuffle Button */
-#shuffleButton {
-  background: #FFD700;
-  color: #121212;
+/* Buttons */
+.button, #shuffleButton {
+  padding: 16px 35px;
   font-size: 20px;
-  padding: 15px 30px;
+  font-weight: 600;
+  color: #121212;
+  background: linear-gradient(135deg, #FFA500, #ffbb33);
   border: none;
   border-radius: 12px;
   cursor: pointer;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  transition: all 0.3s ease;
+  width: 100%;
   margin-top: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
-#shuffleButton:hover {
-  background-color: #ffbb33;
+.button:hover, #shuffleButton:hover {
+  background: linear-gradient(135deg, #ffbb33, #ff7f00);
   transform: scale(1.05);
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
 }
 
-#shuffleButton:active {
-  background-color: #ff9900;
+.button:active, #shuffleButton:active {
+  background: #ff7f00;
   transform: scale(0.95);
 }
 
-/* General Button Styling */
-.button {
-  padding: 15px 30px;
-  font-size: 20px;
-  font-weight: 600;
-  color: #121212;
-  background: #FFD700;
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-  width: 100%;
-  margin-top: 20px;
-}
-
-.button:hover {
-  background-color: #ffbb33;
-  transform: scale(1.05);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-}
-
-.button:focus {
-  outline: none;
-  box-shadow: 0 0 10px rgba(255, 193, 7, 0.6);
-}
-
 .button:disabled {
-  background: #c0c0c0;
+  background: #444;
+  color: #888;
   cursor: not-allowed;
 }
 
-/* Header Image */
-.header-image {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: 0 auto 20px;
-  border-radius: 12px;
-}
-
-/* Add Player Section */
-.add-player input {
-  width: 70%;
+/* Inputs */
+input, #tournamentInput {
+  width: 80%;
+  max-width: 500px;
   padding: 14px;
-  font-size: 18px;
-  margin-right: 12px;
-  border: 2px solid #FFD700;
-  background: #333;
-  color: #FFD700;
-  border-radius: 8px;
-  transition: border-color 0.3s ease;
-}
-
-.add-player input:focus {
-  border-color: #FFA500;
+  font-size: 1.3em;
+  border: 2px solid #FFA500;
+  background: #222;
+  color: #FFA500;
+  text-align: center;
+  border-radius: 10px;
   outline: none;
+  display: block;
+  margin: 20px auto;
+  transition: 0.3s ease;
 }
 
-.add-player button,
-.navigate a {
-  padding: 14px 30px;
-  font-size: 18px;
-  background: #FFD700;
-  color: #121212;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  text-decoration: none;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+input:focus, #tournamentInput:focus {
+  background-color: #333;
+  border-color: #ff7f00;
+  box-shadow: 0 0 10px rgba(255, 140, 0, 0.6);
 }
 
-.add-player button:hover,
-.navigate a:hover {
-  background-color: #ffbb33;
-  transform: scale(1.05);
-}
-
-/* Player and Stats Lists */
+/* Player List */
 ul {
   list-style-type: none;
   padding: 0;
@@ -151,22 +112,24 @@ ul {
 }
 
 li {
-  background: #FFD700;
-  margin: 12px 0;
+  background: linear-gradient(135deg, #FFA500, #ffbb33);
+  margin: 14px 0;
   padding: 18px;
-  border-radius: 8px;
+  border-radius: 10px;
   color: #121212;
   font-weight: 600;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: background 0.3s ease;
+  transition: 0.3s ease;
 }
 
 li:hover {
   background: #ffbb33;
+  transform: scale(1.02);
 }
 
+/* Remove Button */
 li button {
   background: #dc3545;
   color: #fff;
@@ -174,7 +137,7 @@ li button {
   border-radius: 8px;
   padding: 8px 18px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: 0.3s ease;
 }
 
 li button:hover {
@@ -183,83 +146,46 @@ li button:hover {
 
 /* Player Stats */
 .player-stats div {
-  background: #2c2c2c;
-  color: #FFD700;
+  background: #1a1a1a;
+  color: #FFA500;
   margin: 18px 0;
   padding: 18px;
-  border-radius: 10px;
+  border-radius: 12px;
   text-align: left;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
 }
 
 .player-stats input {
   width: 45%;
   padding: 12px;
-  margin: 8px 0;
   font-size: 16px;
-  border: 2px solid #FFD700;
+  border: 2px solid #FFA500;
   background: #333;
-  color: #FFD700;
+  color: #FFA500;
   border-radius: 8px;
-  transition: border-color 0.3s ease;
+  transition: 0.3s ease;
 }
 
 .player-stats input:focus {
-  border-color: #FFA500;
+  border-color: #ff7f00;
   outline: none;
 }
 
-.player-stats button {
-  padding: 12px 25px;
-  background: #FFD700;
-  color: #121212;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.player-stats button:hover {
-  background-color: #ffbb33;
-  transform: scale(1.05);
-}
-
-/* Tournament Input */
-#tournamentInput {
-  background-color: #333;
-  color: #FFD700;
-  border: 2px solid #FFD700;
-  padding: 14px 22px;
-  font-size: 1.3em;
-  text-align: center;
-  width: 80%;
-  max-width: 500px;
-  border-radius: 10px;
-  outline: none;
-  display: block;
-  margin: 15px auto;
-  transition: border-color 0.3s ease;
-}
-
-#tournamentInput:focus {
-  background-color: #444;
-  border-color: #FFA500;
-}
-
+/* Responsive Design */
 @media (max-width: 600px) {
   .button {
     width: auto;
   }
 
   .container {
-    padding: 20px;
+    padding: 25px;
   }
+
   .player-name {
-    font-size: 1.5em; /* Adjust the font size as needed */
+    font-size: 1.4em;
   }
-  
 
   .add-player input {
-    width: 60%;
+    width: 65%;
   }
 }

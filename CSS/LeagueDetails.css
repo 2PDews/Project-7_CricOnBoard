@@ -1,14 +1,13 @@
 /* General Styles */
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #000; /* Black background */
-    color: #f9f9f9; /* Light text color for contrast */
+    background-color: #000;
+    color: #f9f9f9;
     line-height: 1.6;
 }
 
-/* Container for better alignment */
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -16,12 +15,14 @@ body {
     box-sizing: border-box;
 }
 
-/* Header Styles */
+/* Header */
 .header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: relative;
-    background-color: #f1c40f; /* Yellow background */
-    color: #000; /* Black text for contrast */
-    text-align: center;
+    background: linear-gradient(135deg, #f1c40f, #e67e22);
+    color: #000;
     padding: 20px;
     font-size: 28px;
     font-weight: bold;
@@ -29,20 +30,18 @@ body {
     text-transform: uppercase;
     letter-spacing: 2px;
     border-radius: 10px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .header:hover {
-    background-color: #e67e22; /* Orange hover effect */
-    transform: scale(1.05); /* Slight zoom on hover */
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
 }
 
-/* Back button styling */
+/* Back Button */
 .header .back-button {
     position: absolute;
     left: 20px;
-    top: 50%;
-    transform: translateY(-50%);
     display: flex;
     align-items: center;
     background: none;
@@ -53,141 +52,100 @@ body {
     transition: color 0.3s ease;
 }
 
-.header .back-button i {
-    margin-right: 8px;
-}
-
 .header .back-button:hover {
-    color: #e67e22; /* Orange hover effect */
+    color: #e67e22;
 }
 
-/* Content Styles */
+/* Content Box */
 .content {
     margin-top: 30px;
     padding: 30px;
-    background: #111; /* Dark background */
+    background: #111;
     border-radius: 15px;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
-    transition: box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .content:hover {
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.7);
+    transform: scale(1.02);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
 }
 
-/* Footer Styles */
-.footer {
-    display: flex;
-    justify-content: center;
-    margin-top: 30px;
-    padding: 20px;
-}
-
-/* Button Styles */
+/* Buttons */
 .create-schedule-button {
     padding: 14px 28px;
-    background-color: #f1c40f; /* Yellow background */
-    color: #000; /* Black text */
+    background: linear-gradient(135deg, #f1c40f, #e67e22);
+    color: #000;
     border: none;
     border-radius: 8px;
     font-size: 18px;
     font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    transition: all 0.3s ease;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .create-schedule-button:hover {
-    background-color: #e67e22; /* Orange hover effect */
-    transform: translateY(-2px); /* Lift effect on hover */
+    background: linear-gradient(135deg, #e67e22, #d35400);
+    transform: translateY(-3px);
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }
 
 .create-schedule-button:focus {
     outline: none;
-    box-shadow: 0 0 10px rgba(241, 196, 15, 0.7); /* Golden glow on focus */
+    box-shadow: 0 0 10px rgba(241, 196, 15, 0.7);
 }
 
 /* Input Fields */
 .name input {
     width: 100%;
     padding: 14px;
-    border: 1px solid #ccc;
+    border: 2px solid transparent;
     border-radius: 8px;
     font-size: 16px;
-    background: #222; /* Dark background for input */
-    color: #f9f9f9; /* Light text */
+    background: #222;
+    color: #f9f9f9;
     text-align: center;
     margin-bottom: 20px;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .name input:focus, 
 .name input:hover {
-    outline: none;
-    border-color: #e67e22; /* Orange border on hover/focus */
-    box-shadow: 0 0 10px rgba(230, 126, 34, 0.5); /* Glow effect */
+    border-color: #e67e22;
+    box-shadow: 0 0 10px rgba(230, 126, 34, 0.5);
 }
 
-/* Item and Label Styling */
-.item, .footer .value {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 12px 0;
-    border-bottom: 1px solid #333; /* Subtle border */
-    transition: background-color 0.3s ease;
-}
-
-.item:last-child, .footer .value:last-child {
-    border-bottom: none;
-}
-
-.item:hover, .footer .value:hover {
-    background-color: #222; /* Slight darkening on hover */
-}
-
+/* Labels & Items */
 .label {
     font-size: 18px;
-    flex: 2;
-    color: #f1c40f; /* Yellow text */
+    color: #f1c40f;
     font-weight: bold;
     letter-spacing: 1px;
 }
 
 .value {
-    flex: 1;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
 }
 
 .value i {
     font-size: 22px;
     cursor: pointer;
-    color: #f1c40f; /* Yellow icon color */
+    color: #f1c40f;
     transition: color 0.3s ease;
 }
 
 .value i:hover {
-    color: #e67e22; /* Orange hover effect */
+    color: #e67e22;
 }
 
-.value span {
-    margin: 0 12px;
-    font-size: 18px;
-    color: #f9f9f9; /* Light text for values */
-}
-
-/* Mobile Styles */
+/* Mobile Responsiveness */
 @media (max-width: 768px) {
     .header {
         font-size: 22px;
         padding: 15px;
-    }
-
-    .header .back-button {
-        font-size: 18px;
     }
 
     .content {
@@ -203,10 +161,6 @@ body {
         font-size: 16px;
     }
 
-    .value span {
-        font-size: 16px;
-    }
-
     .create-schedule-button {
         font-size: 16px;
         padding: 12px 24px;
@@ -219,10 +173,6 @@ body {
         padding: 12px;
     }
 
-    .header .back-button {
-        font-size: 16px;
-    }
-
     .content {
         padding: 15px;
     }
@@ -233,10 +183,6 @@ body {
     }
 
     .label {
-        font-size: 14px;
-    }
-
-    .value span {
         font-size: 14px;
     }
 

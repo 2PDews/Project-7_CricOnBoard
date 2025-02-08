@@ -9,20 +9,23 @@ document.addEventListener("DOMContentLoaded", () => {
     const confirmDeleteButton = document.getElementById("confirmDeleteButton");
     const cancelDeleteButton = document.getElementById("cancelDeleteButton");
 
-    let playerToDelete = null; // Track the player to delete
-    let confirmationCode = ""; // Store the confirmation code
+    let playerToDelete = null;
+    let confirmationCode = "";
 
     // Load players from local storage
     function loadPlayers() {
         const storedPlayers = JSON.parse(localStorage.getItem("players")) || [];
         storedPlayers.forEach(player => {
-            addPlayerToList(player.name || player);
+            addPlayerToList(player);
         });
+        updatePlayerNumbers(); // Ensure numbering is correct after loading
     }
 
     // Save players to local storage
     function savePlayers() {
-        const players = Array.from(playerList.children).map(listItem => (listItem.querySelector("span").textContent));
+        const players = Array.from(playerList.children).map(listItem => 
+            listItem.querySelector(".player-name").textContent
+        );
         localStorage.setItem("players", JSON.stringify(players));
     }
 
@@ -31,33 +34,73 @@ document.addEventListener("DOMContentLoaded", () => {
         return Math.floor(1000 + Math.random() * 9000).toString();
     }
 
+    // Update player numbering
+    function updatePlayerNumbers() {
+        const players = playerList.children;
+        Array.from(players).forEach((listItem, index) => {
+            listItem.querySelector(".player-number").textContent = `${index + 1}.`;
+        });
+    }
+
     // Add player to the list
     function addPlayerToList(playerName) {
         const listItem = document.createElement("li");
+        listItem.classList.add("player-item");
 
-        // Player name and action buttons
-        listItem.innerHTML = `
-            <span>${playerName}</span>
-            <div>
-                <button class="edit-button">Edit</button>
-                <button class="delete-button">Delete</button>
-            </div>
-        `;
+        // Create container for number and name
+        const playerInfo = document.createElement("div");
+        playerInfo.classList.add("player-info");
 
-        // Add Edit and Delete button functionality
-        listItem.querySelector(".edit-button").addEventListener("click", () => {
+        // Player number
+        const playerNumber = document.createElement("span");
+        playerNumber.classList.add("player-number");
+
+        // Player name
+        const playerNameSpan = document.createElement("span");
+        playerNameSpan.classList.add("player-name");
+        playerNameSpan.textContent = playerName;
+
+
+         // Button container (edit & delete in one row)
+    const buttonContainer = document.createElement("div");
+    buttonContainer.classList.add("button-container");
+        // Edit button
+        const editButton = document.createElement("button");
+        editButton.classList.add("edit-button");
+        editButton.innerHTML = '<span class="edit-icon">✏️</span>';
+
+        editButton.addEventListener("click", () => {
             const newPlayerName = prompt("Edit Player Name:", playerName);
             if (newPlayerName) {
-                listItem.querySelector("span").textContent = newPlayerName.trim();
+                playerNameSpan.textContent = newPlayerName.trim();
                 savePlayers(); // Save changes
             }
         });
 
-        listItem.querySelector(".delete-button").addEventListener("click", () => {
+        // Delete button
+        const deleteButton = document.createElement("button");
+        deleteButton.classList.add("delete-button");
+        deleteButton.innerHTML = '❌';
+
+        deleteButton.addEventListener("click", () => {
             showDeletePopup(listItem);
         });
 
+
+    // Append buttons to the button container
+    buttonContainer.appendChild(editButton);
+    buttonContainer.appendChild(deleteButton);
+
+        // Append number and name inside player info div
+        playerInfo.appendChild(playerNumber);
+        playerInfo.appendChild(playerNameSpan);
+
+        // Append everything to list item
+        listItem.appendChild(playerInfo);
+        listItem.appendChild(buttonContainer);
+
         playerList.appendChild(listItem);
+        updatePlayerNumbers(); // Update numbering after adding a player
     }
 
     // Show delete confirmation popup
@@ -70,7 +113,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Restrict confirmation code input to numerical values only
     confirmationCodeInput.addEventListener("input", () => {
-        confirmationCodeInput.value = confirmationCodeInput.value.replace(/\D/g, ""); // Remove non-digit characters
+        confirmationCodeInput.value = confirmationCodeInput.value.replace(/\D/g, "");
     });
 
     // Confirm deletion
@@ -82,7 +125,8 @@ document.addEventListener("DOMContentLoaded", () => {
             confirmationCode = "";
             deletePopup.style.display = "none";
             confirmationCodeInput.value = "";
-            savePlayers(); // Save changes
+            savePlayers(); 
+            updatePlayerNumbers(); // Update numbering after deletion
         } else {
             alert("Incorrect confirmation code. Try again.");
         }
@@ -100,12 +144,9 @@ document.addEventListener("DOMContentLoaded", () => {
     addPlayerButton.addEventListener("click", () => {
         const playerName = playerNameInput.value.trim();
         if (playerName) {
-            const players = JSON.parse(localStorage.getItem('players')) || [];
-            players.push(playerName);
-            localStorage.setItem('players', JSON.stringify(players));
-
-            addPlayerToList(playerName); // Add player to the list UI
-            playerNameInput.value = "";  // Clear the input field
+            addPlayerToList(playerName); 
+            savePlayers(); 
+            playerNameInput.value = "";  
         } else {
             alert("Please enter a player name!");
         }

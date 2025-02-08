@@ -2,7 +2,7 @@
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
-  background-color: #000;
+  background: linear-gradient(45deg, black, #FFAA00, #FFD700);
   color: #FFD700;
   display: flex;
   justify-content: center;
@@ -31,13 +31,14 @@ h1, h2, h3, h4, h5, h6 {
 .container {
   font-family: 'Roboto', sans-serif;
   padding: 30px;
-  background-color: rgba(34, 34, 34, 0.9);
+
   border-radius: 15px;
   width: 90%;
   max-width: 900px;
   height: 90%;
   overflow-y: auto;
-  box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+  background: linear-gradient(45deg, rgba(34, 34, 34, 0.9), rgba(51, 51, 51, 0.9));
+  box-shadow: 0 0 20px rgba(255, 170, 0, 0.8);
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
@@ -48,7 +49,9 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Header Styles */
 .header {
-  background-color: rgba(51, 51, 51, 0.9);
+  background: linear-gradient(90deg, #FFAA00, #FFD700);
+  border: 2px solid #FFD700;
+  box-shadow: 0px 0px 15px rgba(255, 170, 0, 1);
   color: #FFD700;
   padding: 20px 30px;
   border-radius: 10px;
@@ -60,7 +63,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: bold;
   position: relative;
   text-shadow: 0px 0px 15px rgba(255, 215, 0, 1);
-  border: 2px solid #FFD700;
+
 }
 
 .header::after {
@@ -78,12 +81,13 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Inning Section */
 .inning {
-  background-color: rgba(68, 68, 68, 0.9);
+ 
   padding: 20px;
   border-radius: 12px;
   margin-bottom: 25px;
   text-align: center;
-  box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+  background: linear-gradient(45deg, rgba(34, 34, 34, 0.9), rgba(68, 68, 68, 0.9));
+  box-shadow: 0 0 15px rgba(255, 170, 0, 0.6);
   transition: transform 0.3s ease-in-out;
 }
 
@@ -107,10 +111,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .player {
-  background-color: rgba(34, 34, 34, 0.9);
+ 
   padding: 20px;
   border-radius: 12px;
-  box-shadow: 0 0 12px rgba(255, 215, 0, 0.3);
+  background: linear-gradient(45deg, rgba(34, 34, 34, 0.9), rgba(85, 85, 85, 0.9));
+  box-shadow: 0 0 12px rgba(255, 170, 0, 0.6);
   transition: transform 0.3s ease-in-out, background-color 0.3s ease;
 }
 
@@ -146,7 +151,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Buttons */
 .submit-btn, #saveTournamentButton, #goToTournamentButton {
-  background: linear-gradient(45deg, #FFD700, #FFAA00);
+
   border: none;
   padding: 15px;
   border-radius: 8px;
@@ -156,12 +161,13 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 1.1em;
   text-align: center;
   transition: all 0.3s ease;
-  box-shadow: 0px 0px 10px rgba(255, 215, 0, 1);
+  background: linear-gradient(45deg, #FFAA00, #FFD700);
+  box-shadow: 0px 0px 12px rgba(255, 170, 0, 1);
 }
 
 .submit-btn:hover, #saveTournamentButton:hover, #goToTournamentButton:hover {
-  background: linear-gradient(45deg, #FFAA00, #FFD700);
-  transform: scale(1.05);
+  background: linear-gradient(45deg, #FFD700, #FFAA00);
+  transform: scale(1.05)
 }
 
 /* Totals Section */
@@ -196,11 +202,12 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 8px;
   font-size: 1.2em;
   font-weight: bold;
+  
 }
 
 .run {
-  background-color: #4CAF50;
-  box-shadow: 0px 0px 10px #4CAF50;
+  background: linear-gradient(45deg, #4CAF50, #66FF66);
+  box-shadow: 0px 0px 15px rgba(102, 255, 102, 0.8);
   padding: 12px;
   border-radius: 8px;
   font-weight: bold;
@@ -213,8 +220,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .wicket {
-  background-color: #F44336;
-  box-shadow: 0px 0px 10px #F44336;
+  background: linear-gradient(45deg, #F44336, #FF6666);
+  box-shadow: 0px 0px 15px rgba(255, 102, 102, 0.8);
   padding: 12px;
   border-radius: 8px;
   font-weight: bold;
@@ -261,6 +268,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Total Runs Section */
 .total.runs {
   background: linear-gradient(45deg, #007BFF, #00A2FF); /* Blue gradient */
+  box-shadow: 0px 0px 15px rgba(102, 133, 255, 0.8);
   color: white;
   padding: 12px;
   border-radius: 8px;
@@ -276,4 +284,22 @@ h1, h2, h3, h4, h5, h6 {
 .total.runs:hover {
   transform: scale(1.1);
   box-shadow: 0px 0px 20px rgba(0, 162, 255, 1); /* Stronger glow on hover */
+}
+
+
+.title {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 20px 0;
+}
+
+#tournamentTitle {
+  font-size: 36px;
+  color: #FFD700; /* Gold */
+  text-transform: uppercase;
+  font-weight: bold;
+
 }

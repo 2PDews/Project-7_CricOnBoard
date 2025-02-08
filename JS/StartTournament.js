@@ -2,8 +2,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const tournamentInput = document.getElementById("tournamentInput");
     const goToTournamentButton = document.getElementById("goToTournamentButton");
     const saveButton = document.getElementById("saveTournamentBtn");
+    console.log("Save Tournament Button:", saveButton);
+function saveTournament() {
+    console.log("Save Tournament Function Called!");
+}
 
-    let inningsCount = parseInt(sessionStorage.getItem("totalInnings")) || 4; // Default to 4 innings
+
+    let inningsCount = parseInt(sessionStorage.getItem("totalInnings")) || 4;
     const selectedPlayers = JSON.parse(localStorage.getItem("selectedPlayers")) || [];
 
     const playerTotals = selectedPlayers.reduce((totals, player) => {
@@ -14,7 +19,6 @@ document.addEventListener("DOMContentLoaded", () => {
     function generateTournamentSections(inningsCount, players) {
         const inningsContainer = document.getElementById("innings-container");
         if (!inningsContainer) return;
-
         inningsContainer.innerHTML = "";
 
         for (let i = 1; i <= inningsCount; i++) {
@@ -58,7 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const innings = document.querySelectorAll(".inning");
 
         if (inningNumber > innings.length) return;
-        const inningDiv = innings[inningNumber - 1]; // Correct selection
+        const inningDiv = innings[inningNumber - 1];
 
         const playersDiv = inningDiv.querySelectorAll(".player");
 
@@ -69,13 +73,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (playerTotals[playerName]) {
                 const previousInningData = playerTotals[playerName].previousInningData[inningNumber - 1] || { runs: 0, wickets: 0 };
-
                 playerTotals[playerName].runs -= previousInningData.runs;
                 playerTotals[playerName].wickets -= previousInningData.wickets;
-
                 playerTotals[playerName].runs += runsInput;
                 playerTotals[playerName].wickets += wicketsInput;
-
                 playerTotals[playerName].previousInningData[inningNumber - 1] = { runs: runsInput, wickets: wicketsInput };
             }
 
@@ -92,14 +93,11 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!playerTotalsList) return;
 
         playerTotalsList.innerHTML = "";
-
         const sortedPlayerNames = Object.keys(playerTotals).sort((a, b) => playerTotals[b].runs - playerTotals[a].runs);
 
         sortedPlayerNames.forEach(playerName => {
             const player = playerTotals[playerName];
-
             const totalRuns = player.runs + (player.wickets * runsPerWicket);
-
             const totalDiv = document.createElement("li");
             totalDiv.innerHTML = `
                 <div class="player-name">${playerName}</div>
@@ -107,21 +105,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 <div class="wicket">W: ${player.wickets}</div>
                 <div class="total runs">TR: ${totalRuns}</div>
             `;
-
             playerTotalsList.appendChild(totalDiv);
         });
     }
 
-    function handleInputChanges() {
-        document.querySelectorAll(".runs-input, .wickets-input").forEach(input => {
-            input.addEventListener("input", updatePlayerTotals);
-        });
-    }
-
     function saveTournament() {
-        const tournamentNameInput = document.getElementById("tournamentInput");
-        const tournamentName = tournamentNameInput ? tournamentNameInput.value.trim() : "Unnamed Tournament";
-
+        const tournamentName = tournamentInput ? tournamentInput.value.trim() : "Unnamed Tournament";
         if (!tournamentName) {
             alert("Please enter a tournament name before saving.");
             return;
@@ -136,7 +125,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         const tournament = {
-            srNo: Date.now(), // Unique ID
+            srNo: Date.now(),
             name: tournamentName,
             scorecard: allInningData.length ? JSON.stringify(allInningData) : "No Scorecard Data"
         };
@@ -156,16 +145,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
     generateTournamentSections(inningsCount, selectedPlayers);
     updatePlayerTotals();
-    handleInputChanges();
 
-    // Simulated stored data for testing
-    sessionStorage.setItem("inning1Data", JSON.stringify([{ name: "Player 1", runs: 50, wickets: 2 }]));
+    if (goToTournamentButton) {
+        goToTournamentButton.addEventListener("click", () => {
+            window.location.href = "tournament.html";
+        });
+    } else {
+        console.error("Go to Tournament button not found!");
+    }
 });
-if (goToTournamentButton) {
-    goToTournamentButton.addEventListener("click", () => {
-        // Redirect to the tournament page
-        window.location.href = "tournament.html";  // Change this to your actual tournament page URL
-    });
-} else {
-    console.error("Go to Tournament button not found!");
-}
+
+window.onload = function() {
+    const tournamentName = localStorage.getItem('tournamentName');
+    if (tournamentName) {
+      document.getElementById('tournamentTitle').innerText = tournamentName;  // Set the tournament name in the title
+    }
+  }

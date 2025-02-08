@@ -1,108 +1,135 @@
 /* General Styles */
-body {
-    margin: 0;
-    font-family: 'Arial', sans-serif;
-    background-color: #000000; /* Black background */
-    color: #f1c40f; /* Yellow text */
-    text-align: center;
-  }
-  
-  /* Container */
-  .container {
-    padding: 20px;
-  }
-  
-  /* Header */
-  header {
-    margin-bottom: 30px;
-  }
-  
-  header h1 {
-    color: #f1c40f;
-    font-size: 36px;
-    text-shadow: 0 0 10px #f1c40f, 0 0 20px #f1c40f;
-  }
-  
-  /* Main Options */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden; /* Prevent scrolling */
+  font-family: 'Arial', sans-serif;
+  background-color: #000000; /* Black background */
+  color: #f1c40f; /* Yellow text */
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Container */
+.container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Header */
+header {
+  margin-bottom: 20px;
+}
+/* Heading Animation */
+h1 {
+  font-size: 36px;
+  font-weight: bold;
+  color: #f1c40f; /* Yellow */
+  text-shadow: 0 0 10px #f1c40f, 0 0 20px #f1c40f, 0 0 40px #ffcc00;
+  text-align: center;
+  animation: glow 1.5s infinite alternate, bounce 1.5s ease-in-out infinite;
+}
+
+/* Glowing Effect */
+@keyframes glow {
+  0% { text-shadow: 0 0 10px #f1c40f, 0 0 20px #f1c40f; }
+  100% { text-shadow: 0 0 20px #ffcc00, 0 0 40px #ffcc00; }
+}
+
+/* Bounce Effect */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Main Options */
+main {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  max-width: 100%;
+}
+
+/* Option Box */
+.option {
+  background: linear-gradient(145deg, #f1c40f, #d4ac0d);
+  border: 2px solid #000000;
+  border-radius: 15px;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 5px 15px rgba(241, 196, 15, 0.5), 0px 0px 10px rgba(0, 0, 0, 0.8);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.option i {
+  font-size: 50px;
+  color: #000000;
+}
+
+.option h2 {
+  margin-top: 10px;
+  color: #000000;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.option a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.option:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 10px 25px rgba(241, 196, 15, 0.7), 0px 0px 15px rgba(0, 0, 0, 1);
+  background: linear-gradient(145deg, #ffda44, #e1b10b);
+}
+
+/* Glossy Effect */
+.option:before {
+  content: '';
+  position: absolute;
+  width: 80%;
+  height: 80%;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  transform: translateY(-20px) rotate(-45deg);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.option:hover:before {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
   main {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-  }
-  
-  .option {
-    background: linear-gradient(145deg, #f1c40f, #d4ac0d);
-    border: 2px solid #000000;
-    border-radius: 15px;
-    width: 200px;
-    height: 200px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0px 5px 15px rgba(241, 196, 15, 0.5), 0px 0px 10px rgba(0, 0, 0, 0.8);
-    transition: all 0.3s ease;
-  }
-  
-  .option i {
-    font-size: 50px;
-    color: #000000;
-  }
-  
-  .option h2 {
-    margin-top: 10px;
-    color: #000000;
-    font-size: 20px;
-    font-weight: bold;
-  }
-  
-  .option a {
-    text-decoration: none;
-    color: inherit;
-  }
-  
-  .option:hover {
-    transform: scale(1.1);
-    box-shadow: 0px 10px 25px rgba(241, 196, 15, 0.7), 0px 0px 15px rgba(0, 0, 0, 1);
-    background: linear-gradient(145deg, #ffda44, #e1b10b);
-  }
-  
-  /* Add glossy effect */
-  .option:before {
-    content: '';
-    position: absolute;
-    width: 80%;
-    height: 80%;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 15px;
-    transform: translateY(-20px) rotate(-45deg);
-    z-index: 1;
-    pointer-events: none;
-  }
-  
-  .option:hover:before {
-    background: rgba(255, 255, 255, 0.3);
-  }
-  
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    main {
       padding: 20px;
-      margin-top: 200px;
-    }
-  
-    .option {
-      width: 150px;
-      height: 150px;
-    }
-  
-    .option i {
-      font-size: 40px;
-    }
-  
-    .option h2 {
-      font-size: 18px;
-    }
+      margin-top: 0; /* Remove excess space */
   }
-  
+
+  .option {
+      width: 140px;
+      height: 140px;
+  }
+
+  .option i {
+      font-size: 35px;
+  }
+
+  .option h2 {
+      font-size: 16px;
+  }
+}

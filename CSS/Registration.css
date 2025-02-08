@@ -1,63 +1,135 @@
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
 
 body {
-         display: flex;
-         justify-content: center;
-         align-items: center;
-         height: 100vh;
-         margin: 0;
-         background-color: #333;
-         font-family: Arial, sans-serif;
-     }
-     .container {
-         background-color: #444;
-         padding: 20px;
-         border-radius: 10px;
-         width: 300px;
-         text-align: center;
-         color: #fff;
-     }
-     .container img {
-         width: 100%;
-         max-width: 200px;
-         margin-bottom: 20px;
-     }
-     .container input[type="email"],
-     .container input[type="password"] {
-         width: 100%;
-         padding: 10px;
-         margin: 10px 0;
-         border: none;
-         border-bottom: 1px solid #888;
-         background-color: #444;
-         color: #fff;
-     }
-     .container input[type="email"]::placeholder,
-     .container input[type="password"]::placeholder {
-         color: #888;
-     }
-     .container .input-group {
-         position: relative;
-     }
-     .container .input-group i {
-         position: absolute;
-         right: 10px;
-         top: 50%;
-         transform: translateY(-50%);
-         color: #888;
-         cursor: pointer;
-     }
-     .container button {
-         width: 100%;
-         padding: 10px;
-         margin: 20px 0;
-         border: none;
-         border-radius: 5px;
-         background-color: #ffcc00;
-         color: #000;
-         font-size: 16px;
-         cursor: pointer;
-     }
-     .container a {
-         color: #888;
-         text-decoration: none;
-     }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background: linear-gradient(135deg, #111, #333);
+    padding: 20px;
+}
+
+/* Container */
+.container {
+    background: rgba(255, 255, 255, 0.08);
+    padding: 30px;
+    border-radius: 15px;
+    width: 100%;
+    max-width: 350px;
+    text-align: center;
+    color: #fff;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 12px rgba(255, 223, 0, 0.3);
+}
+
+/* Logo */
+.container img {
+    width: 100%;
+    max-width: 160px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+}
+
+/* Input Fields */
+.container input[type="email"],
+.container input[type="password"] {
+    width: 100%;
+    padding: 14px;
+    margin: 12px 0;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: transparent;
+    color: #fff;
+    border-radius: 6px;
+    outline: none;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.container input[type="email"]::placeholder,
+.container input[type="password"]::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* Input Group with Icon */
+.container .input-group {
+    position: relative;
+}
+
+.container .input-group i {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(255, 255, 255, 0.6);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.container .input-group i:hover {
+    color: #ffcc00;
+}
+
+/* Button */
+.container button {
+    width: 100%;
+    padding: 14px;
+    margin: 15px 0;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #ffcc00, #ff9900);
+    color: #000;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 4px 10px rgba(255, 223, 0, 0.4);
+}
+
+.container button:hover {
+    background: linear-gradient(135deg, #ffb300, #ff8000);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(255, 223, 0, 0.6);
+}
+
+/* Links */
+.container a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.container a:hover {
+    color: #ffcc00;
+}
+
+/* Fully Responsive for Mobile */
+@media (max-width: 480px) {
+    .container {
+        padding: 20px;
+        width: 90%;
+    }
+
+    .container img {
+        max-width: 140px;
+    }
+
+    .container input {
+        font-size: 14px;
+        padding: 12px;
+    }
+
+    .container button {
+        font-size: 14px;
+        padding: 12px;
+    }
+}

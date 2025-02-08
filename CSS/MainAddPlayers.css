@@ -1,11 +1,13 @@
 /* Global Styles */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #111; /* Deep black background */
-    color: #f1f1f1; /* Soft white text */
+    background:  black;
+    color: #FFD700; /* Bright Yellow */
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    text-align: center;
+    padding-bottom: 80px; /* Adjusted to prevent overlap */
 }
 
 /* Header */
@@ -13,8 +15,8 @@ body {
     font-size: 2.5em;
     text-align: center;
     margin-top: 30px;
-    color: #f1c40f; /* Glossy yellow header */
-    text-shadow: 0 4px 10px rgba(241, 196, 15, 0.8); /* Bright yellow glow */
+    color: #FFD700; /* Glossy Yellow */
+    text-shadow: 0 4px 12px rgba(255, 215, 0, 1);
     letter-spacing: 2px;
 }
 
@@ -30,23 +32,23 @@ body {
     flex: 1;
     padding: 12px;
     border-radius: 8px;
-    border: 2px solid #f1c40f; /* Yellow border */
-    background: #222; /* Dark background for inputs */
-    color: #f1f1f1;
+    border: 2px solid #FFD700; /* Yellow Border */
+    background: black; /* Dark input background */
+    color: #FFD700;
     font-size: 1.1em;
-    box-shadow: 0 0 8px rgba(241, 196, 15, 0.4);
+    box-shadow: 0 0 12px rgba(255, 215, 0, 0.7);
     transition: all 0.3s ease-in-out;
 }
 
 .add-player-section input:focus {
-    border-color: #e2b607; /* Bright yellow on focus */
-    box-shadow: 0 0 12px rgba(226, 182, 7, 0.6); /* Glow effect */
+    border-color: #FFAA00;
+    box-shadow: 0 0 16px rgba(255, 170, 0, 0.8);
     outline: none;
 }
 
 .add-player-section button {
     padding: 12px 25px;
-    background: linear-gradient(145deg, #f1c40f, #d4ac0d); /* Glossy yellow gradient */
+    background: linear-gradient(145deg, #FFD700, #FFAA00);
     color: black;
     border: none;
     border-radius: 8px;
@@ -54,37 +56,71 @@ body {
     font-size: 1.1em;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 12px rgba(255, 215, 0, 0.6);
 }
 
 .add-player-section button:hover {
-    background: linear-gradient(145deg, #e2b607, #f1c40f); /* Slightly lighter yellow */
-    transform: scale(1.05); /* Slightly larger on hover */
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(145deg, #FFAA00, #FFD700);
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(255, 215, 0, 0.8);
 }
 
+/* Player List */
 /* Player List */
 ul {
     list-style: none;
     padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    margin: 20px 0;
+    padding-bottom: 10px; 
+ 
 }
 
 li {
-    background: linear-gradient(145deg, #1c1c1c, #333); /* Glossy black gradient */
-    padding: 18px;
+    background: linear-gradient(145deg, #1c1c1c, #333);
+    padding: 15px;
     border-radius: 10px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
     color: #f1f1f1;
     font-size: 1.2em;
     font-weight: 500;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+/* Styling for the numbering */
+.player-number {
+    font-weight: bold;
+    color: #f1c40f;
+    margin-right: 10px;
+    font-size: 1.2em;
+}
+.player-name {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #f1f1f1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.player-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Ensures space between player info & buttons */
+    padding: 10px;
+    border-radius: 5px;
+    background: #2c3e50;
+    margin-bottom: 5px;
+    color: white;
+}
+.player-info {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+}
+li div {
+    display: flex;
+    gap: 10px;
 }
 
 li:hover {
@@ -102,26 +138,27 @@ li button {
     font-size: 1em;
     transition: all 0.3s ease-in-out;
 }
-
-.edit-button {
-    background: linear-gradient(145deg, #f1c40f, #d4ac0d); /* Glossy yellow */
-    color: black;
+.button-container {
+    display: flex;
+    gap: 10px; /* Adds space between buttons */
 }
 
-.edit-button:hover {
-    background-color: #e2b607; /* Lighter yellow */
-    transform: scale(1.1);
-}
-
+.edit-button,
 .delete-button {
-    background: #dc3545; /* Red delete button */
+    padding: 5px 5px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.edit-button {
     color: white;
 }
 
-.delete-button:hover {
-    background-color: #b02a37; /* Darker red on hover */
+.edit-button:hover {
+    background-color: #FFAA00;
     transform: scale(1.1);
 }
+
 
 /* Popup Styles */
 .popup {
@@ -129,40 +166,43 @@ li button {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: linear-gradient(145deg, #1c1c1c, #333);
+    background: linear-gradient(145deg, black, #222);
     padding: 25px;
     border-radius: 15px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.7);
+    box-shadow: 0 6px 20px rgba(255, 215, 0, 0.9);
     display: none;
     z-index: 1000;
     text-align: center;
+    width: 90%; /* Adjust for smaller screens */
+    max-width: 400px; /* Limit width on larger screens */
 }
 
 .popup input {
     padding: 12px;
     margin-top: 10px;
-    width: 80%;
-    border: 2px solid #f1c40f;
+    width: 100%; /* Make input take full width */
+    border: 2px solid #FFD700;
     border-radius: 8px;
-    background: #222;
-    color: #f1f1f1;
+    background: black;
+    color: #FFD700;
     font-size: 1.1em;
     transition: all 0.3s ease-in-out;
 }
 
 .popup input:focus {
-    border-color: #e2b607;
-    box-shadow: 0 0 12px rgba(226, 182, 7, 0.6);
+    border-color: #FFAA00;
+    box-shadow: 0 0 12px rgba(255, 170, 0, 0.8);
 }
 
 .popup button {
-    padding: 12px 20px;
+    padding: 12px 15px;
     margin: 10px 5px;
     border-radius: 8px;
     font-weight: bold;
     cursor: pointer;
-    font-size: 1.1em;
+    font-size: 1em; /* Adjust font size */
     transition: all 0.3s ease-in-out;
+    width: 45%; /* Make buttons fit side by side */
 }
 
 .confirm-button {
@@ -176,12 +216,12 @@ li button {
 }
 
 .cancel-button {
-    background: #dc3545;
+    background: #FF4500;
     color: white;
 }
 
 .cancel-button:hover {
-    background-color: #b02a37;
+    background-color: #C53000;
     transform: scale(1.05);
 }
 
@@ -192,17 +232,149 @@ li button {
 }
 
 #homeButton {
-    background: linear-gradient(145deg, #f1c40f, #d4ac0d);
+    background: linear-gradient(145deg, #FFD700, #FFAA00);
     color: black;
     font-weight: bold;
     padding: 15px 30px;
     border-radius: 10px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 6px 15px rgba(255, 215, 0, 0.6);
     transition: all 0.3s ease-in-out;
 }
 
 #homeButton:hover {
-    background-color: #e2b607;
+    background-color: #FFAA00;
     transform: scale(1.1);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 8px 20px rgba(255, 215, 0, 0.8);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .add-player-section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .add-player-section input {
+        width: 90%;
+    }
+
+    li {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .home-button-container {
+        width: 90%;
+        bottom: 10px;
+    }
+
+    #homeButton {
+        width: 100%;
+        padding: 12px;
+        font-size: 1em;
+    }
+
+    ul {
+        padding-bottom: 10px; /* More space for smaller screens */
+    }
+
+    li button {
+        width: 100%;
+        margin-top: 10px;
+    }
+}
+
+
+.edit-button {
+    background: linear-gradient(145deg, #FFD700, #FFAA00); /* Glossy Yellow Gradient */
+    color: black;
+    padding: 5px 5px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Space between icon and text */
+    border: none;
+}
+
+.edit-button:hover {
+    background: linear-gradient(145deg, #FFAA00, #FFD700); /* Slightly lighter yellow on hover */
+    transform: scale(1.1);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Custom Edit Icon */
+.edit-icon {
+    background: black; /* Black background */
+    color: #FFD700; /* Yellow icon */
+    padding: 5px;
+    border-radius: 50%;
+    font-size: 1em;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+
+@media (max-width: 480px) {
+    .popup {
+        width: 95%; /* Use more screen width */
+        max-width: none;
+        padding: 20px;
+    }
+
+    .popup button {
+        width: 100%; /* Make buttons full width on small screens */
+        margin: 5px 0;
+        padding: 12px;
+    }
+}
+
+/* Fixed Go to Tournament Button */
+.home-button-container {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    width: auto; /* Prevents unwanted stretching */
+}
+
+#homeButton {
+    background: linear-gradient(145deg, #FFD700, #FFAA00);
+    color: black;
+    font-weight: bold;
+    padding: 15px 30px;
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(255, 215, 0, 0.6);
+    transition: all 0.3s ease-in-out;
+    font-size: 1.2em;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+#homeButton:hover {
+    background-color: #FFAA00;
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(255, 215, 0, 0.8);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .home-button-container {
+        width: 90%;
+        bottom: 10px;
+    }
+    #homeButton {
+        width: 100%;
+        padding: 12px;
+        font-size: 1em;
+    }
 }
