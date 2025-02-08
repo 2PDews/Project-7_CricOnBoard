@@ -59,6 +59,11 @@ document.addEventListener("DOMContentLoaded", () => {
         const playerNameSpan = document.createElement("span");
         playerNameSpan.classList.add("player-name");
         playerNameSpan.textContent = playerName;
+        playerNameInput.addEventListener("click", function () {
+            setTimeout(() => {
+                playerNameInput.focus();
+            }, 100); // Ensures keyboard opens on mobile
+        });
 
 
          // Button container (edit & delete in one row)

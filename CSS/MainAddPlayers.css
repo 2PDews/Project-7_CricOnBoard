@@ -15,7 +15,7 @@ body {
     font-size: 2.5em;
     text-align: center;
     margin-top: 30px;
-    color: #FFD700; /* Glossy Yellow */
+    color: #FFD700, orange; /* Glossy Yellow */
     text-shadow: 0 4px 12px rgba(255, 215, 0, 1);
     letter-spacing: 2px;
 }
@@ -90,14 +90,14 @@ li {
 /* Styling for the numbering */
 .player-number {
     font-weight: bold;
-    color: #f1c40f;
+    color: #000000;
     margin-right: 10px;
     font-size: 1.2em;
 }
 .player-name {
     font-size: 1.2em;
     font-weight: bold;
-    color: #f1f1f1;
+    color: #000000;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -109,7 +109,7 @@ li {
     justify-content: space-between; /* Ensures space between player info & buttons */
     padding: 10px;
     border-radius: 5px;
-    background: #2c3e50;
+    background: linear-gradient(135deg, #f1c40f, #e67e22);
     margin-bottom: 5px;
     color: white;
 }
