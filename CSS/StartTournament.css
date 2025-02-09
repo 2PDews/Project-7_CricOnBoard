@@ -2,7 +2,7 @@
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(45deg, black, #FFAA00, #FFD700);
+  background: linear-gradient(45deg, #000000, #1a1a1a, #333333);
   color: #FFD700;
   display: flex;
   justify-content: center;
@@ -31,7 +31,6 @@ h1, h2, h3, h4, h5, h6 {
 .container {
   font-family: 'Roboto', sans-serif;
   padding: 30px;
-
   border-radius: 15px;
   width: 90%;
   max-width: 900px;
@@ -63,7 +62,6 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: bold;
   position: relative;
   text-shadow: 0px 0px 15px rgba(255, 215, 0, 1);
-
 }
 
 .header::after {
@@ -81,7 +79,6 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Inning Section */
 .inning {
- 
   padding: 20px;
   border-radius: 12px;
   margin-bottom: 25px;
@@ -111,13 +108,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .player {
- 
   padding: 20px;
   border-radius: 12px;
   background: linear-gradient(45deg, rgba(34, 34, 34, 0.9), rgba(85, 85, 85, 0.9));
   box-shadow: 0 0 12px rgba(255, 170, 0, 0.6);
   transition: transform 0.3s ease-in-out, background-color 0.3s ease;
 }
+
 
 .player:hover {
   transform: translateY(-5px);
@@ -151,7 +148,6 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Buttons */
 .submit-btn, #saveTournamentButton, #goToTournamentButton {
-
   border: none;
   padding: 15px;
   border-radius: 8px;
@@ -167,7 +163,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .submit-btn:hover, #saveTournamentButton:hover, #goToTournamentButton:hover {
   background: linear-gradient(45deg, #FFD700, #FFAA00);
-  transform: scale(1.05)
+  transform: scale(1.05);
 }
 
 /* Totals Section */
@@ -185,11 +181,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #player-totals li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
   background-color: #222;
   padding: 15px;
   border-radius: 12px;
   transition: transform 0.2s ease;
-  position: relative;
+  list-style: none;
 }
 
 #player-totals li:hover {
@@ -197,12 +197,23 @@ h1, h2, h3, h4, h5, h6 {
   transform: translateY(-3px);
 }
 
-.run, .wicket {
-  padding: 12px;
-  border-radius: 8px;
-  font-size: 1.2em;
+.rank, .player-name {
+  display: block;
+  text-align: center;
+  width: 100%;
+  font-size: 25px;
+  color: #FFD700;
   font-weight: bold;
-  
+}
+
+.run, .wicket, .total {
+  margin-top: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 5px;
+  border-radius: 5px;
+  min-width: 60px;
+  text-align: center;
 }
 
 .run {
@@ -215,7 +226,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 1.4em;
   width: 120px;
   display: inline-block;
-  box-shadow: 0px 0px 15px rgba(0, 255, 13, 0.8); /* Neon Blue Glow */
+  box-shadow: 0px 0px 15px rgba(0, 255, 13, 0.8);
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
@@ -229,7 +240,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 1.4em;
   width: 120px;
   display: inline-block;
-  box-shadow: 0px 0px 15px rgba(255, 0, 0, 0.8); /* Neon Blue Glow */
+  box-shadow: 0px 0px 15px rgba(255, 0, 0, 0.8);
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
@@ -243,6 +254,7 @@ h1, h2, h3, h4, h5, h6 {
     grid-template-columns: 1fr;
   }
 }
+
 #tournamentInput {
   background-color: #333;
   color: #FFD700;
@@ -254,9 +266,9 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 12px;
   outline: none;
   transition: background-color 0.3s ease, border-color 0.3s ease;
-  display: block;  /* Ensures it behaves as a block element */
-  margin: 0 auto;  /* Centers it horizontally */
-  text-align: center;  /* Centers the text inside */
+  display: block;
+  margin: 0 auto;
+  text-align: center;
 }
 
 #tournamentInput:focus {
@@ -267,7 +279,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Total Runs Section */
 .total.runs {
-  background: linear-gradient(45deg, #007BFF, #00A2FF); /* Blue gradient */
+  background: linear-gradient(45deg, #007BFF, #00A2FF);
   box-shadow: 0px 0px 15px rgba(102, 133, 255, 0.8);
   color: white;
   padding: 12px;
@@ -277,15 +289,14 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 1.4em;
   width: 120px;
   display: inline-block;
-  box-shadow: 0px 0px 15px rgba(0, 162, 255, 0.8); /* Neon Blue Glow */
+  box-shadow: 0px 0px 15px rgba(0, 162, 255, 0.8);
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 .total.runs:hover {
   transform: scale(1.1);
-  box-shadow: 0px 0px 20px rgba(0, 162, 255, 1); /* Stronger glow on hover */
+  box-shadow: 0px 0px 20px rgba(0, 162, 255, 1);
 }
-
 
 .title {
   text-align: center;
@@ -298,8 +309,7 @@ h1, h2, h3, h4, h5, h6 {
 
 #tournamentTitle {
   font-size: 36px;
-  color: #FFD700; /* Gold */
+  color: #FFD700;
   text-transform: uppercase;
   font-weight: bold;
-
 }

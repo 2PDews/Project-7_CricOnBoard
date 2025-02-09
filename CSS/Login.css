@@ -142,3 +142,19 @@ body {
         padding: 12px;
     }
 }
+.input-group {
+    position: relative;
+}
+
+.input-group i {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #FFA500;
+}
+
+.input-group i:hover {
+    color: #FFD700;
+}

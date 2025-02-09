@@ -95,19 +95,20 @@ function saveTournament() {
         playerTotalsList.innerHTML = "";
         const sortedPlayerNames = Object.keys(playerTotals).sort((a, b) => playerTotals[b].runs - playerTotals[a].runs);
 
-        sortedPlayerNames.forEach(playerName => {
+        sortedPlayerNames.forEach((playerName, index) => {
             const player = playerTotals[playerName];
             const totalRuns = player.runs + (player.wickets * runsPerWicket);
             const totalDiv = document.createElement("li");
             totalDiv.innerHTML = `
-                <div class="player-name">${playerName}</div>
+                <div class="rank">${index + 1}.</div> 
+                <div class="player-name"> ${playerName}</div>
                 <div class="run">R: ${player.runs}</div>
                 <div class="wicket">W: ${player.wickets}</div>
                 <div class="total runs">TR: ${totalRuns}</div>
             `;
             playerTotalsList.appendChild(totalDiv);
         });
-    }
+            }
 
     function saveTournament() {
         const tournamentName = tournamentInput ? tournamentInput.value.trim() : "Unnamed Tournament";
