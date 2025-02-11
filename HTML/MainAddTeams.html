@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Teams</title>
+    <link rel="stylesheet" href="../CSS/MainAddTeams.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-people-arrows"></i> Add Teams</h1>
+        </header>
+        <main>
+            <div class="team-form">
+                <input type="text" id="teamNameInput" placeholder="Enter Team Name">
+                <button id="addTeamBtn">Add Team</button>
+            </div>
+            <div class="teams-list">
+                <h2>Teams</h2>
+                <ul id="teamsContainer"></ul>
+            </div>
+        </main>
+        <button id="saveTeamsBtn" class="save-btn">Save Teams</button>
+    </div>
+
+    <!-- 🎯 Add Players Popup Modal -->
+<div id="playerModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Select Players for <span id="selectedTeamName"></span></h2>
+        <ul id="playersList"></ul>
+        <button id="confirmPlayersBtn">Confirm Selection</button>
+    </div>
+</div>
+
+    <script src="../JS/MainAddTeams.js"></script>
+</body>
+</html>

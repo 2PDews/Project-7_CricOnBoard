@@ -2,8 +2,8 @@
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(45deg, #000000, #1a1a1a, #333333);
-  color: #FFD700;
+  background-color: #0A192F; /* Deep Cyberpunk Blue */
+    color: #00FFFF;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -24,7 +24,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'Orbitron', sans-serif;
   font-weight: bold;
   text-transform: uppercase;
-  text-shadow: 0px 0px 10px rgba(255, 215, 0, 0.8);
+  text-shadow: 0px 0px 10px rgba(0, 255, 255, 0.8);
 }
 
 /* Container Styles */
@@ -36,22 +36,22 @@ h1, h2, h3, h4, h5, h6 {
   max-width: 900px;
   height: 90%;
   overflow-y: auto;
-  background: linear-gradient(45deg, rgba(34, 34, 34, 0.9), rgba(51, 51, 51, 0.9));
-  box-shadow: 0 0 20px rgba(255, 170, 0, 0.8);
+  background: rgba(10, 25, 47, 0.95);
+  box-shadow:  0 0 20px rgba(0, 255, 255, 0.8);
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 .container:hover {
   transform: translateY(-5px);
-  box-shadow: 0 0 25px rgba(255, 215, 0, 0.8);
+  box-shadow:0 0 25px rgba(0, 255, 255, 0.8);
 }
 
 /* Header Styles */
 .header {
-  background: linear-gradient(90deg, #FFAA00, #FFD700);
-  border: 2px solid #FFD700;
-  box-shadow: 0px 0px 15px rgba(255, 170, 0, 1);
-  color: #FFD700;
+  background: linear-gradient(90deg, #9400FF, #00FFFF);
+  border: 2px solid #00FFFF;
+  box-shadow: 0px 0px 15px rgba(0, 255, 255, 1);
+  color: #000;
   padding: 20px 30px;
   border-radius: 10px;
   margin-bottom: 25px;
@@ -61,7 +61,6 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 2.5em;
   font-weight: bold;
   position: relative;
-  text-shadow: 0px 0px 15px rgba(255, 215, 0, 1);
 }
 
 .header::after {
@@ -72,9 +71,9 @@ h1, h2, h3, h4, h5, h6 {
   transform: translateX(-50%);
   width: 85%;
   height: 6px;
-  background-color: #FFD700;
+  background-color: #00FFFF;
   border-radius: 5px;
-  box-shadow: 0 0 10px rgba(255, 215, 0, 1);
+  box-shadow: 0 0 10px rgba(0, 255, 255, 1);
 }
 
 /* Inning Section */
@@ -83,20 +82,20 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 12px;
   margin-bottom: 25px;
   text-align: center;
-  background: linear-gradient(45deg, rgba(34, 34, 34, 0.9), rgba(68, 68, 68, 0.9));
-  box-shadow: 0 0 15px rgba(255, 170, 0, 0.6);
+  background: rgba(10, 25, 47, 0.9);
+  box-shadow:0 0 15px rgba(0, 255, 255, 0.6);
   transition: transform 0.3s ease-in-out;
 }
 
 .inning:hover {
   transform: scale(1.03);
-  box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
 }
 
 .inning h2 {
-  color: #FFD700;
+  color: #00FFFF;
   font-size: 2em;
-  text-shadow: 0px 0px 12px rgba(255, 215, 0, 1);
+  
 }
 
 /* Player Section */
@@ -110,8 +109,8 @@ h1, h2, h3, h4, h5, h6 {
 .player {
   padding: 20px;
   border-radius: 12px;
-  background: linear-gradient(45deg, rgba(34, 34, 34, 0.9), rgba(85, 85, 85, 0.9));
-  box-shadow: 0 0 12px rgba(255, 170, 0, 0.6);
+  background: rgba(10, 25, 47, 0.9);
+  box-shadow: 0 0 12px rgba(0, 255, 255, 0.6);
   transition: transform 0.3s ease-in-out, background-color 0.3s ease;
 }
 
@@ -119,31 +118,31 @@ h1, h2, h3, h4, h5, h6 {
 .player:hover {
   transform: translateY(-5px);
   background-color: rgba(85, 85, 85, 0.9);
-  box-shadow: 0 0 18px rgba(255, 215, 0, 0.6);
+  box-shadow: 0 0 18px rgba(0, 255, 255, 0.6);
 }
 
 .player i {
-  color: #FFD700;
+  color: #00FFFF;
   font-size: 1.6em;
 }
 
 .player .player-info {
-  color: #FFD700;
+  color: #00FFFF;
 }
 
 .player .player-stats input {
-  background-color: #333;
-  border: 2px solid #FFD700;
+  background-color: #112240;
+  border: 2px solid #00FFFF;
   padding: 10px;
   border-radius: 8px;
-  color: #FFD700;
+  color: #00FFFF;
   font-size: 1.1em;
 }
 
 .player .player-stats input:focus {
   outline: none;
-  background-color: #555;
-  border-color: #FFA500;
+  background-color: #223A5F;
+  border-color: #9400FF;
 }
 
 /* Buttons */
@@ -151,33 +150,32 @@ h1, h2, h3, h4, h5, h6 {
   border: none;
   padding: 15px;
   border-radius: 8px;
-  color: black;
+  color: rgb(255, 255, 255);
   cursor: pointer;
   width: 100%;
   font-size: 1.1em;
   text-align: center;
   transition: all 0.3s ease;
-  background: linear-gradient(45deg, #FFAA00, #FFD700);
-  box-shadow: 0px 0px 12px rgba(255, 170, 0, 1);
+  background: linear-gradient(45deg, #9400FF, #00FFFF);
+  box-shadow: 0px 0px 12px rgba(0, 255, 255, 1);
 }
 
 .submit-btn:hover, #saveTournamentButton:hover, #goToTournamentButton:hover {
-  background: linear-gradient(45deg, #FFD700, #FFAA00);
+  background: linear-gradient(45deg, #00FFFF, #4B0082);
   transform: scale(1.05);
 }
 
 /* Totals Section */
 #totals-container {
-  background-color: rgba(34, 34, 34, 0.9);
+  background-color: rgba(10, 25, 47, 0.9);
   padding: 25px;
   border-radius: 15px;
-  box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
 }
 
 #totals-container h3 {
   font-size: 2em;
-  color: #FFD700;
-  text-shadow: 0px 0px 10px rgba(255, 215, 0, 1);
+  color: #00FFFF;
 }
 
 #player-totals li {
@@ -185,7 +183,7 @@ h1, h2, h3, h4, h5, h6 {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  background-color: #222;
+  background-color: #112240;
   padding: 15px;
   border-radius: 12px;
   transition: transform 0.2s ease;
@@ -193,7 +191,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #player-totals li:hover {
-  background-color: #444;
+  background-color: #223A5F;
   transform: translateY(-3px);
 }
 
@@ -214,6 +212,7 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 5px;
   min-width: 60px;
   text-align: center;
+  color: white
 }
 
 .run {

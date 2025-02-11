@@ -1,21 +1,25 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", function () {
+    // Get elements
     const tournamentInput = document.getElementById("tournamentInput");
     const goToTournamentButton = document.getElementById("goToTournamentButton");
-    const saveButton = document.getElementById("saveTournamentBtn");
-    console.log("Save Tournament Button:", saveButton);
-function saveTournament() {
-    console.log("Save Tournament Function Called!");
-}
-
+    const saveButton = document.getElementById("saveTournamentButton");
 
     let inningsCount = parseInt(sessionStorage.getItem("totalInnings")) || 4;
     const selectedPlayers = JSON.parse(localStorage.getItem("selectedPlayers")) || [];
 
+    // Initialize player totals
     const playerTotals = selectedPlayers.reduce((totals, player) => {
         totals[player.name || player] = { runs: 0, wickets: 0, previousInningData: [] };
         return totals;
     }, {});
 
+    // Load saved tournament name from localStorage
+    const tournamentName = localStorage.getItem("tournamentName");
+    if (tournamentName) {
+        document.getElementById("tournamentTitle").innerText = tournamentName;
+    }
+
+    // Generate innings and player sections
     function generateTournamentSections(inningsCount, players) {
         const inningsContainer = document.getElementById("innings-container");
         if (!inningsContainer) return;
@@ -57,6 +61,7 @@ function saveTournament() {
         }
     }
 
+    // Save Inning Data
     function saveInningData(inningNumber) {
         const inningData = [];
         const innings = document.querySelectorAll(".inning");
@@ -87,6 +92,7 @@ function saveTournament() {
         alert(`Inning ${inningNumber} data saved successfully!`);
     }
 
+    // Update Player Totals
     function updatePlayerTotals() {
         const runsPerWicket = parseInt(localStorage.getItem("runsPerWicket")) || 0;
         const playerTotalsList = document.getElementById("player-totals");
@@ -108,10 +114,11 @@ function saveTournament() {
             `;
             playerTotalsList.appendChild(totalDiv);
         });
-            }
+    }
 
+    // Save Tournament
     function saveTournament() {
-        const tournamentName = tournamentInput ? tournamentInput.value.trim() : "Unnamed Tournament";
+        const tournamentName = document.getElementById("tournamentTitle").innerText;
         if (!tournamentName) {
             alert("Please enter a tournament name before saving.");
             return;
@@ -128,24 +135,30 @@ function saveTournament() {
         const tournament = {
             srNo: Date.now(),
             name: tournamentName,
-            scorecard: allInningData.length ? JSON.stringify(allInningData) : "No Scorecard Data"
+            innings: allInningData,
+            players: document.getElementById("players-container").innerHTML,
+            totals: document.getElementById("totals-container").innerHTML
         };
 
-        let tournaments = JSON.parse(localStorage.getItem("tournaments")) || [];
-        tournaments.push(tournament);
-        localStorage.setItem("tournaments", JSON.stringify(tournaments));
+        let savedTournaments = JSON.parse(localStorage.getItem("tournaments")) || [];
+        let existingTournamentIndex = savedTournaments.findIndex(t => t.name === tournamentName);
 
+        if (existingTournamentIndex !== -1) {
+            savedTournaments[existingTournamentIndex] = tournament;
+        } else {
+            savedTournaments.push(tournament);
+        }
+
+        localStorage.setItem("tournaments", JSON.stringify(savedTournaments));
         alert("Tournament saved successfully!");
     }
 
+    // Event Listeners
     if (saveButton) {
         saveButton.addEventListener("click", saveTournament);
     } else {
         console.error("Save Tournament button not found!");
     }
-
-    generateTournamentSections(inningsCount, selectedPlayers);
-    updatePlayerTotals();
 
     if (goToTournamentButton) {
         goToTournamentButton.addEventListener("click", () => {
@@ -154,11 +167,25 @@ function saveTournament() {
     } else {
         console.error("Go to Tournament button not found!");
     }
-});
 
-window.onload = function() {
-    const tournamentName = localStorage.getItem('tournamentName');
+    // Initial Page Setup
+    generateTournamentSections(inningsCount, selectedPlayers);
+    updatePlayerTotals();
+});
+document.addEventListener("DOMContentLoaded", function () {
+    // Check if there's a saved tournament in localStorage
+    let params = new URLSearchParams(window.location.search);
+    let tournamentName = params.get("tournament");
+    let savedTournaments = JSON.parse(localStorage.getItem("tournaments")) || [];
+
     if (tournamentName) {
-      document.getElementById('tournamentTitle').innerText = tournamentName;  // Set the tournament name in the title
+        let tournament = savedTournaments.find(t => t.name === tournamentName);
+
+        if (tournament) {
+            document.getElementById("tournamentTitle").innerText = tournament.name;
+            document.getElementById("innings-container").innerHTML = tournament.innings;
+            document.getElementById("players-container").innerHTML = tournament.players;
+            document.getElementById("totals-container").innerHTML = tournament.totals;
+        }
     }
-  }
+});

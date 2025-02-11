@@ -2,7 +2,7 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background-color: #000000; /* Black background */
+    background-color: #0A192F; /* Deep blue cyberpunk background */
     color: #f1f1f1; /* Light text color */
 }
 
@@ -11,10 +11,10 @@ body {
     display: flex;
     align-items: center;
     padding: 15px;
-    background: linear-gradient(90deg, #ffcc00, #ff7700); /* Yellow to orange gradient */
+    background: linear-gradient(90deg, #9400FF, #00FFFF); /* Electric purple to cyan gradient */
     flex-wrap: wrap;
-    border-bottom: 3px solid #ff7700; /* Orange divider */
-    box-shadow: 0 4px 10px rgba(255, 140, 0, 0.4); /* Orange shadow */
+    border-bottom: 3px solid #00FFFF; /* Cyan divider */
+    box-shadow: 0 4px 10px rgba(0, 255, 255, 0.4); /* Cyan glow */
 }
 
 .header i {
@@ -37,14 +37,14 @@ body {
     margin: 0;
     font-size: 24px;
     color: #000; /* Black text */
-    text-shadow: 2px 2px 5px rgba(255, 140, 0, 0.6); /* Orange glow */
+    text-shadow: 2px 2px 5px rgba(0, 255, 255, 0.6); /* Cyan glow */
     text-transform: uppercase;
 }
 
 .header .title p {
     margin: 0;
     font-size: 14px;
-    color: #333; /* Darker muted gray text */
+    color: #ddd; /* Light gray text */
 }
 
 .header .icons {
@@ -73,14 +73,14 @@ body {
 .content h2 {
     margin: 20px 0;
     font-size: 22px;
-    color: #ffcc00; /* Yellow headings */
-    text-shadow: 1px 1px 6px rgba(255, 140, 0, 0.7); /* Glow effect */
+    color: #00FFFF; /* Cyan headings */
+    text-shadow: 1px 1px 6px rgba(0, 255, 255, 0.7); /* Neon glow */
     text-transform: uppercase;
 }
 
 /* Button styles */
 .button {
-    background: linear-gradient(145deg, #ffcc00, #ff7700); /* Glossy yellow-to-orange gradient */
+    background: linear-gradient(145deg, #9400FF, #00FFFF); /* Glossy purple-to-cyan gradient */
     border: none;
     color: #000000; /* Black text */
     padding: 16px;
@@ -92,13 +92,13 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 10px rgba(255, 140, 0, 0.6); /* Orange shadow */
+    box-shadow: 0 4px 10px rgba(0, 255, 255, 0.6); /* Neon glow */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .button:hover {
     transform: scale(1.08);
-    box-shadow: 0 6px 15px rgba(255, 140, 0, 0.8); /* Brighter glow */
+    box-shadow: 0 6px 15px rgba(0, 255, 255, 0.8); /* Brighter glow */
     cursor: pointer;
 }
 
@@ -113,7 +113,7 @@ body {
 
 /* Next button */
 .next-button {
-    background: linear-gradient(145deg, #ffcc00, #ff7700); /* Glossy yellow gradient */
+    background: linear-gradient(145deg, #9400FF, #00FFFF); /* Glossy neon gradient */
     font-size: 20px;
     width: 90%;
     margin-top: 25px;
@@ -121,26 +121,26 @@ body {
     border: none;
     border-radius: 12px;
     color: #000;
-    box-shadow: 0 4px 12px rgba(255, 140, 0, 0.6); /* Orange shadow */
+    box-shadow: 0 4px 12px rgba(0, 255, 255, 0.6); /* Neon glow */
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .next-button:hover {
-    background-color: #ffdf00; /* Brighter yellow */
+    background-color: #0088FF; /* Brighter neon blue */
     transform: scale(1.05);
     cursor: pointer;
 }
 
 .next-button:focus {
     outline: none;
-    box-shadow: 0 0 12px rgba(255, 140, 0, 0.9); /* Glow on focus */
+    box-shadow: 0 0 12px rgba(0, 255, 255, 0.9); /* Glow on focus */    
 }
 
 /* Input Fields */
 input {
     width: 90%;
     padding: 14px;
-    border: 2px solid #ffcc00;
+    border: 2px solid #00FFFF;
     border-radius: 8px;
     font-size: 16px;
     background: #222; /* Dark input background */
@@ -151,17 +151,17 @@ input {
 
 input:focus,
 input:hover {
-    border-color: #ff7700; /* Orange border on hover/focus */
-    box-shadow: 0 0 10px rgba(255, 140, 0, 0.7);
+    border-color: #9400FF; /* Purple border on hover/focus */
+    box-shadow: 0 0 10px rgba(148, 0, 255, 0.7);
 }
 
 /* Footer styles */
 .footer {
     display: flex;
     overflow-x: auto;
-    background: linear-gradient(90deg, #ff7700, #ffcc00); /* Reverse gradient */
+    background: linear-gradient(90deg, #00FFFF, #9400FF); /* Reverse gradient */
     padding: 12px 0;
-    border-top: 3px solid #ff7700; /* Orange divider */
+    border-top: 3px solid #00FFFF; /* Cyan divider */
 }
 
 .footer img {

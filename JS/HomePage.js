@@ -9,3 +9,11 @@ document.getElementById('players-option').onclick = () => {
     alert('Redirecting to Players Page'); // Replace with redirection logic
     // window.location.href = "players.html"; // Uncomment to redirect
 };
+
+
+document.getElementById('teams-option').onclick = () => {
+    alert('Redirecting to Teams Page'); // Replace with redirection logic
+    // window.location.href = "MainAddTeams.html"; // Uncomment to redirect
+};
+
+
