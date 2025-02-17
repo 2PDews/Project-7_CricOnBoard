@@ -121,7 +121,28 @@ document.addEventListener("DOMContentLoaded", () => {
             localStorage.setItem("runsPerWicket", runsPerWicket);
         });
     }
+    const runsPerCatchDisplay = document.getElementById("catchPoints");
+    const minusCatchBtn = document.querySelector(".minus-btn[data-target='catchPoints']");
+    const plusCatchBtn = document.querySelector(".plus-btn[data-target='catchPoints']");
 
+    if (runsPerCatchDisplay && minusCatchBtn && plusCatchBtn) {
+        let runsPerCatch = parseInt(localStorage.getItem("runsPerCatch") || "0");
+        runsPerCatchDisplay.textContent = runsPerCatch;
+
+        minusCatchBtn.addEventListener("click", () => {
+            if (runsPerCatch > 0) {
+                runsPerCatch--;
+                runsPerCatchDisplay.textContent = runsPerCatch;
+                localStorage.setItem("runsPerCatch", runsPerCatch);
+            }
+        });
+
+        plusCatchBtn.addEventListener("click", () => {
+            runsPerCatch++;
+            runsPerCatchDisplay.textContent = runsPerCatch;
+            localStorage.setItem("runsPerCatch", runsPerCatch);
+        });
+    }
     // Load Tournament Name
     window.onload = function () {
         const tournamentName = localStorage.getItem("tournamentName");
@@ -136,28 +157,3 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 });
 
-
-document.addEventListener("DOMContentLoaded", () => {
-    const runsPerWicketDisplay = document.getElementById("winPoints");
-    const minusRunsBtn = document.querySelector(".minus-btn[data-target='winPoints']");
-    const plusRunsBtn = document.querySelector(".plus-btn[data-target='winPoints']");
-
-    if (runsPerWicketDisplay && minusRunsBtn && plusRunsBtn) {
-        let runsPerWicket = parseInt(localStorage.getItem("runsPerWicket")) || 0;
-        runsPerWicketDisplay.textContent = runsPerWicket;
-
-        minusRunsBtn.addEventListener("click", () => {
-            if (runsPerWicket > 0) {
-                runsPerWicket--;
-                runsPerWicketDisplay.textContent = runsPerWicket;
-                localStorage.setItem("runsPerWicket", runsPerWicket);
-            }
-        });
-
-        plusRunsBtn.addEventListener("click", () => {
-            runsPerWicket++;
-            runsPerWicketDisplay.textContent = runsPerWicket;
-            localStorage.setItem("runsPerWicket", runsPerWicket);
-        });
-    }
-});
