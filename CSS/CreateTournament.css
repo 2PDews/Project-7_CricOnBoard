@@ -11,6 +11,65 @@ html, body {
   justify-content: center;
   align-items: center;
 }
+.dropdown-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 15px 0;
+  width: 100%; /* Ensures full-width responsiveness */
+  max-width: 400px; /* Prevents it from getting too wide on larger screens */
+}
+
+.dropdown-group label {
+  font-size: 16px;
+  font-weight: 500;
+  color: #0ff; /* Neon Cyan */
+}
+
+.dropdown-group select {
+  background: linear-gradient(135deg, #5a189a, #9d4edd); /* Electric Purple Gradient */
+  border: 2px solid #0ff; /* Neon Cyan Border */
+  color: #fff;
+  font-size: 16px;
+  padding: 12px;
+  border-radius: 8px;
+  outline: none;
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
+  width: 100%; /* Takes up full width of parent */
+}
+
+.dropdown-group select:hover {
+  background: linear-gradient(135deg, #9d4edd, #5a189a);
+  border-color: #ff0; /* Neon Yellow on hover */
+}
+
+.dropdown-group select:focus {
+  box-shadow: 0 0 10px #0ff; /* Neon glow effect */
+}
+
+.dropdown-group option {
+  background: #0A192F; /* Deep Blue Background */
+  color: #fff;
+  padding: 10px;
+}
+
+/* Mobile Optimization */
+@media (max-width: 768px) {
+  .dropdown-group {
+      max-width: 90%; /* Ensures it adapts to smaller screens */
+      margin: 10px auto;
+  }
+
+  .dropdown-group label {
+      font-size: 14px; /* Adjust label size for smaller screens */
+  }
+
+  .dropdown-group select {
+      font-size: 14px;
+      padding: 10px;
+  }
+}
 
 /* Main Container */
 .container {
