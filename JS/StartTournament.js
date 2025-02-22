@@ -179,3 +179,6 @@ document.addEventListener("DOMContentLoaded", function () {
     generateTournamentSections(inningsCount, selectedPlayers);
     updatePlayerTotals();
 });
+
+
+
